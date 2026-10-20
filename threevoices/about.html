@@ -1,0 +1,45 @@
+---
+layout: tv-default
+title: About
+nav: about
+permalink: /threevoices/about.html
+sitemap: true
+---
+<header class="page-head">
+  <div class="eyebrow">Method</div>
+  <h1>About {{ site.threevoices.title }}</h1>
+  <p class="lede">{{ site.threevoices.title }} records how conversational AI is applied in autism care, agriculture and space technologies: one use case from each, every month, with a step‑by‑step account of how it works.</p>
+</header>
+<div class="rules">
+  <div><h2>In scope</h2><p>Chatbots, voice assistants and language‑model tools that people talk or type to, used in autism care (Medical · Autism), agriculture, or space technologies.</p></div>
+  <div><h2>What counts as a source</h2><p>News outlets, peer‑reviewed journals, universities, space agencies and other public bodies, research institutes and non‑profits.</p></div>
+  <div><h2>What is left out</h2><p>Vendor case studies, AI‑company blog posts, consulting reports and social‑media testimonials, even when they tell a good story.</p></div>
+</div>
+<section class="home-sec">
+  <h2 class="section-title">Three domains</h2>
+  <div class="areas">{% for cat in site.data.threevoices.categories %}{% if cat.home %}
+    {% assign n = 0 %}{% for i in site.data.threevoices.issues %}{% for c in site.data.threevoices.cases[i.slug] %}{% if c.category contains cat.key %}{% assign n = n | plus: 1 %}{% endif %}{% endfor %}{% endfor %}
+    <div class="area">
+      <div class="spot">{% case cat.key %}{% when 'autism' %}{% include threevoices/illustrations/spot-autism.svg %}{% when 'agriculture' %}{% include threevoices/illustrations/spot-agriculture.svg %}{% when 'space' %}{% include threevoices/illustrations/spot-space.svg %}{% endcase %}</div>
+      <span class="count">{{ n }} use case{% if n != 1 %}s{% endif %} so far</span>
+      <h3>{{ cat.area_title }}</h3>
+      <p>{{ cat.area_text }}</p>
+    </div>{% endif %}{% endfor %}
+  </div>
+</section>
+<section class="caveats">
+  <h2>The fine print</h2>
+  <ul>
+    <li>Each issue picks one use case per domain: the best-sourced or most recent that month.</li>
+    <li>Many projects are pilots. Where results are early, self‑reported or from one small study, the case says so in a “Read with care” note.</li>
+    <li>Health tools here, for autism or astronaut care, are research or pilot systems, not replacements for clinicians.</li>
+  </ul>
+</section>
+{% for issue in site.data.threevoices.issues %}
+<section class="sources">
+  <h2>Sources · No. {{ issue.number }}, {{ issue.month }}</h2>
+  <ol class="srclist">{% for c in site.data.threevoices.cases[issue.slug] %}{% for l in c.links %}
+    <li><a href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }}</a> <span>{{ c.stamp | downcase }} · case {{ c.id | remove: 'c' }}</span></li>{% endfor %}{% endfor %}
+  </ol>
+</section>
+{% endfor %}

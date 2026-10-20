@@ -1,0 +1,18 @@
+/* Issues: the issue bar on issue pages and the archive covers. */
+.issuebar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 20px; padding-block: 12px; border-bottom: 1px solid var(--rule); font-family: var(--mono); font-size: .8rem; color: var(--muted); }
+.issuebar .here { color: var(--ink); }
+.issuebar .here b { font-weight: 500; }
+.issuebar .pill { background: var(--mark); color: #1b2521; padding: 1px 7px; border-radius: 3px; margin-left: 6px; font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; }
+.issuebar nav { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+.issuebar nav a { color: var(--accent); }
+.issuebar nav a[aria-current="page"] { color: var(--ink); text-decoration: none; font-weight: 500; }
+.archive { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 20px; padding-block: 32px 0; }
+.cover { background: var(--sheet); border: 1px solid var(--rule); border-radius: 12px; overflow: hidden; display: grid; }
+.cover-top { background: var(--accent); color: var(--paper); padding: 22px 24px 20px; display: grid; gap: 6px; }
+.cover-top .no { font-family: var(--mono); font-size: .75rem; letter-spacing: .14em; text-transform: uppercase; opacity: .85; }
+.cover-top .mo { font-family: var(--display); font-weight: 800; font-size: 2.2rem; line-height: 1; letter-spacing: -.02em; }
+.cover-body { padding: 20px 24px 24px; display: grid; gap: 12px; }
+.cover-body h2 { font-family: var(--display); font-weight: 700; font-size: 1.3rem; margin: 0; }
+.cover-body p { margin: 0; color: var(--muted); font-size: .96rem; }
+.cover-figs { display: flex; flex-wrap: wrap; gap: 6px 16px; font-family: var(--display); font-weight: 800; color: var(--accent); font-size: 1.15rem; }
+.cover-meta { font-family: var(--mono); font-size: .78rem; }

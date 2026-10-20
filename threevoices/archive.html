@@ -1,0 +1,23 @@
+---
+layout: tv-default
+title: Archive
+nav: archive
+permalink: /threevoices/archive.html
+sitemap: true
+---
+<header class="page-head">
+  <div class="eyebrow">Every issue</div>
+  <h1>Archive</h1>
+</header>
+<div class="archive">{% for issue in site.data.threevoices.issues %}{% assign cases = site.data.threevoices.cases[issue.slug] %}{% capture dir %}/threevoices/issues/{{ issue.slug }}/{% endcapture %}
+  <article class="cover">
+    <!-- <div class="cover-top"><span class="no">{{ issue.number }}{% if forloop.first %} · Latest{% endif %}</span><span class="mo">{{ issue.month }}</span></div> -->
+    <div class="cover-body">
+      <h2>{{ issue.title }}</h2>
+      <p>{{ issue.summary }}</p>
+      <div class="cover-figs" aria-label="Headline figures">{% for c in cases limit: 5 %}<span>{{ c.figure }}</span>{% endfor %}</div>
+      <p class="cover-meta">{{ issue.compiled }} · {{ cases.size }} cases</p>
+      <div class="btns"><a class="btn primary" href="{{ dir | append: 'cases.html' | relative_url }}">Read the cases</a><a class="btn ghost" href="{{ dir | append: 'how-it-works.html' | relative_url }}">How it works</a></div>
+    </div>
+  </article>{% endfor %}
+</div>

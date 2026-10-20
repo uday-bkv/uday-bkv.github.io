@@ -12,3 +12,14 @@ main:
 
   - title: "AI Engineering"
     url: /aiengineering/
+
+  - title: "Learnings"
+    url: /learnings/
+
+  - title: "Three Voices"
+    url: /threevoices/
+
+  # SproutPath — remove the two # below and put in the real address.
+  # A full https:// address opens in a new tab; a /path/ stays on this site.
+  # - title: "SproutPath"
+  #   url: https://example.com/sproutpath/

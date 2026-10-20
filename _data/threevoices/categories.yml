@@ -1,0 +1,16 @@
+# The three domains this site covers. Keys are used in each case's `category` list.
+- key: autism
+  label: Medical · Autism
+  home: true
+  area_title: Medical · Autism
+  area_text: Chatbots that help autistic people practise conversations, help others communicate more clearly, and support caregivers.
+- key: agriculture
+  label: Agriculture
+  home: true
+  area_title: Agriculture
+  area_text: Voice assistants that keep farm records and give crop and livestock advice in farmers' own languages.
+- key: space
+  label: Space technologies
+  home: true
+  area_title: Space technologies
+  area_text: Assistants that support astronauts' health and open up Earth-observation knowledge to everyone.

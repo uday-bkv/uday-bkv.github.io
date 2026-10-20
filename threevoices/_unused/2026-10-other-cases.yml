@@ -1,0 +1,318 @@
+# October 2026 cases not used in the issue (each issue shows one case per domain).
+# This folder starts with "_" so it is not published or loaded.
+# To swap one in: replace that domain's entry in _data/threevoices/cases/2026-10.yml
+# with the entry below, and give it that entry's id (c01 autism, c02 agriculture, c03 space).
+- id: c02
+  category:
+  - autism
+  use_case: Communication training for non-autistic people
+  place: USA
+  new: false
+  reported: 5 December 2025
+  figure: '12'
+  figure_note: people in the first test, with a board of autistic advisers shaping the design
+  headline: A chatbot taught non-autistic people to communicate more clearly with autistic people
+  who: Non-autistic participants in a Tufts University study, with autistic volunteers guiding the design
+  paragraphs:
+  - Most autism tools ask autistic people to adapt. NeuroBridge, from Tufts University computer scientists Rukhshan Haroon and Fahad Dogar, turns that around. It builds a conversation scenario from details users give about themselves. At key moments it offers three replies that mean the same thing but differ in tone and clarity, and flags ones an autistic listener might take differently, such as a yes-or-no question like “Is there a way…?” that can be answered without giving the information wanted. A board of autistic volunteers refined it, and it was presented at the ACM SIGACCESS accessibility conference.
+  quote: “It is more useful as a way for non-autistic people to gain firsthand experience with cross-neurotype communication.” Rukhshan Haroon
+  care: Tested with 12 people, with qualitative feedback only. There is no comparison group, and lasting effects aren't measured yet.
+  stamp: University
+  links:
+  - label: Tufts University, via Futurity
+    url: https://www.futurity.org/autism-communication-ai-tool-3317932/
+  trace:
+    title: Practice for the other side of the conversation
+    area: Medical · Autism
+    summary: A language model builds a personal scenario and shows how differently worded replies might land with an autistic listener.
+    facts:
+    - label: The problem
+      text: Misunderstandings between autistic and non-autistic people are often blamed on the autistic person, though both sides contribute.
+    - label: AI used
+      text: NeuroBridge, a large-language-model tool from Tufts University.
+    - label: What goes in
+      text: Details users share about themselves, and their choices during a simulated conversation.
+    - label: What comes out
+      text: Three alternative replies at key points, with flags on wording that could be misread.
+    - label: Who checks it
+      text: A board of autistic volunteers shaped the design through repeated feedback.
+    - label: Grounded in
+      text: The social model of disability and principles of clear, brief, unambiguous communication.
+    steps:
+    - role: person
+      text: A non-autistic user describes themselves, for example their job and a situation they want to practise.
+    - role: ai
+      text: The model builds a realistic conversation scenario around those details.
+    - role: ai
+      text: At key moments it offers three replies with the same meaning but different tone and clarity.
+    - role: ai
+      text: It flags wording an autistic listener might take literally, such as yes-or-no questions that hide a request.
+    - role: outcome
+      text: Participants said it showed which parts of their conversations could be received differently, and found that useful.
+    worked: Designed with autistic advisers, it shares the work of adapting between both sides of a conversation.
+    limits: 12 participants, self-reported feedback, and no measure of lasting change.
+    sources:
+    - label: Futurity (Tufts)
+      url: https://www.futurity.org/autism-communication-ai-tool-3317932/
+    clinical: false
+    tools:
+    - label: Models
+      text: Any capable chat model (Claude, GPT‑4o, Gemini) or an open model run with Ollama
+    - label: Prompting
+      text: A system prompt that writes three same-meaning replies and labels ambiguity, returned as structured JSON
+    - label: Co-design
+      text: A standing panel of autistic advisers to review scenarios and feedback
+    - label: Interface
+      text: Gradio or Streamlit chat with the reply options side by side
+- id: c03
+  category:
+  - autism
+  use_case: Caregiver well-being
+  place: Hong Kong
+  new: false
+  reported: 9 March 2026
+  figure: 32.8 → 46.1
+  figure_note: parents' WHO‑5 well-being score, before and after two weeks
+  headline: Mothers of autistic children used a chatbot to look after their own well-being
+  who: 19 mothers of autistic children in a Hong Kong Metropolitan University study
+  paragraphs:
+  - Parents of autistic children often have little time for their own mental health. Researchers at Hong Kong Metropolitan University built Allie, a GPT‑4o chatbot that walks parents through eight short positive-psychology exercises over two weeks, such as using personal strengths, noting three good things and writing a gratitude letter, with room for free conversation. 17 of the 19 mothers finished every exercise, rated it easy to use, and their well-being scores rose significantly.
+  quote: “It really feels like I'm chatting with a real person.” A participant
+  care: A single-group study of 19 mothers with no comparison group. Depression, stress and quality-of-life scores did not change significantly.
+  stamp: Peer-reviewed
+  links:
+  - label: JMIR Formative Research, 9 Mar 2026
+    url: https://pmc.ncbi.nlm.nih.gov/articles/PMC13010079/
+  trace:
+    title: A guided well-being coach for caregivers
+    area: Medical · Autism
+    summary: A chatbot leads parents through structured positive-psychology exercises in short sessions they can fit around caregiving.
+    facts:
+    - label: The problem
+      text: Caring for an autistic child can be demanding, and parents' own support is often scarce.
+    - label: AI used
+      text: Allie, a chatbot built on GPT‑4o by Hong Kong Metropolitan University researchers.
+    - label: What goes in
+      text: Parents' replies to each exercise, plus any free conversation.
+    - label: What comes out
+      text: Eight guided exercises based on the PERMA model of well-being, with prompts that help parents reflect.
+    - label: Who checks it
+      text: The research team designed the sequence and measured outcomes with standard questionnaires.
+    - label: How we know
+      text: A single-group study with 19 mothers, published in JMIR Formative Research.
+    steps:
+    - role: person
+      text: A parent opens Allie in a phone or computer browser.
+    - role: ai
+      text: Allie introduces one exercise at a time, such as listing three good things from the day.
+    - role: person
+      text: The parent responds and can chat freely between exercises.
+    - role: ai
+      text: Allie asks follow-up questions, for example why they want to thank someone in a gratitude letter.
+    - role: outcome
+      text: 89.5% completed all eight exercises in two weeks, and well-being scores rose from 32.8 to 46.1.
+    worked: Short, structured exercises fitted into busy days, and the conversational tone made them feel personal.
+    limits: Small, all-mother sample, no comparison group and only two weeks. Other measures didn't change.
+    sources:
+    - label: JMIR Formative Research (PMC)
+      url: https://pmc.ncbi.nlm.nih.gov/articles/PMC13010079/
+    clinical: true
+    tools:
+    - label: Models
+      text: GPT‑4o, Claude or Gemini; or an open model such as Qwen or Llama with Ollama
+    - label: Programme logic
+      text: A simple state machine (plain Python or LangGraph) that steps through the exercises in order
+    - label: Measures
+      text: WHO‑5, PHQ‑9 and PSS‑10 questionnaires as forms, with consent and safeguarding prompts
+    - label: Interface
+      text: A mobile-friendly web chat, or a WhatsApp Business bot for reach
+- id: c05
+  category:
+  - agriculture
+  use_case: Crop advice by phone call
+  place: India
+  new: false
+  reported: 3 April 2026
+  figure: 5,000+
+  figure_note: minutes of live farmer calls in Telugu and Tamil during the beta
+  headline: Telugu-speaking farmers got crop advice by simply phoning a voice agent
+  who: Smallholder farmers in southeast India, in a beta run with NGOs and agriculture companies
+  paragraphs:
+  - India has about 90 million Telugu-speaking farmers, and generic speech tools often fail in fields and local dialects. Farm Vaidya, a start-up advised by the International Food Policy Research Institute (IFPRI), built a voice agent farmers simply call. Its answers come only from verified university and government advisories. The team trained speech recognition on more than 30,000 hours of real farm audio across 10 Indian languages, recorded over 5,000 local names for crops and pests, and taught the agent to ask clarifying questions the way scientists do with farmers.
+  quote: ''
+  care: Written by the developers with IFPRI, and one author is the start-up's chief executive. No yield or income results are reported, and the authors note models can give wrong advice, such as pesticide doses.
+  stamp: Research institute
+  links:
+  - label: IFPRI blog, 3 Apr 2026
+    url: https://www.ifpri.org/blog/generative-ai-powered-voice-technology-in-agricultural-advisory-services-lessons-from-india/
+  trace:
+    title: A phone line that answers in the farmer's dialect
+    area: Agriculture
+    summary: Farmers call and talk. Speech recognition tuned on farm audio feeds a model that answers only from verified advisories.
+    facts:
+    - label: The problem
+      text: Advice is often not available in farmers' own dialect, and generic speech tools had error rates of 50% or more in the field.
+    - label: AI used
+      text: A voice agent built by Farm Vaidya, with IFPRI as technical adviser.
+    - label: What goes in
+      text: A farmer's spoken question by phone, in Telugu or Tamil.
+    - label: What comes out
+      text: Spoken, context-specific advice, with clarifying questions where needed.
+    - label: Who checks it
+      text: Answers are limited to verified university and government advisories, and checked with experts and farmer feedback.
+    - label: Testing
+      text: Language models were compared on more than 5,000 agricultural questions covering over 100 crops.
+    steps:
+    - role: person
+      text: A farmer calls the number and describes a problem in Telugu.
+    - role: ai
+      text: Speech recognition trained on farm audio and local crop and pest names transcribes the call.
+    - role: ai
+      text: The agent asks a clarifying question, then answers using only verified advisories.
+    - role: ai
+      text: The answer is spoken back in the farmer's language.
+    - role: outcome
+      text: More than 5,000 minutes of live calls in the beta. Results for yields and incomes aren't available yet.
+    worked: Local vocabulary and verified sources mattered more than the choice of model.
+    limits: A developer-written account of a beta, with no measured farm outcomes.
+    sources:
+    - label: IFPRI
+      url: https://www.ifpri.org/blog/generative-ai-powered-voice-technology-in-agricultural-advisory-services-lessons-from-india/
+    clinical: false
+    tools:
+    - label: Telephony
+      text: Twilio, Exotel or Asterisk for an inbound voice line
+    - label: Speech
+      text: AI4Bharat IndicConformer or Whisper fine-tuned on local audio; India's Bhashini APIs
+    - label: Answers
+      text: Retrieval over agriculture university and ICAR advisories with LlamaIndex and Chroma
+    - label: Voice out
+      text: AI4Bharat Indic-TTS or Piper
+- id: c06
+  category:
+  - agriculture
+  use_case: Livestock advice by voice
+  place: India
+  new: false
+  reported: 25 September 2026
+  figure: ₹150
+  figure_note: a vet visit Gayatriben no longer needed for her buffalo
+  headline: Dairy farmers got a vet's advice in Gujarati from a voice assistant
+  who: Gayatriben, Charmiben and Meenaben in Gujarat, and Dipali Kalbhor, a beekeeper in Maharashtra
+  paragraphs:
+  - Gujarat's dairy co-operative runs a voice assistant called Sarlaben that answers in Gujarati. It recognises farmers by phone number and draws on the co-op's records for each animal. It told Gayatriben how to treat her buffalo, gave Charmiben a feeding plan for a cow that wasn't growing, and recognised that Meenaben's cow was in a dangerous birth, then connected her to a specialist in time to save it. In Maharashtra, Dipali Kalbhor checks the state's MahaVISTAAR platform two or three times a day, and its fertiliser calculator cut her fertiliser use by about 15%.
+  quote: ''
+  care: These are farmers' own accounts. No published evaluation of outcomes exists yet.
+  stamp: News
+  links:
+  - label: The Better India, 25 Sep 2026
+    url: https://thebetterindia.com/farming/ai-for-farmers-india-sarlaben-mahavistaar-local-language-cattle-crops-12574226/amp
+  trace:
+    title: A voice assistant that knows each cow
+    area: Agriculture
+    summary: Dairy farmers ask by voice in Gujarati, and the assistant answers using the co-operative's records for their own animals.
+    facts:
+    - label: The problem
+      text: A vet visit costs ₹150 and has to be arranged through the co-operative.
+    - label: AI used
+      text: Sarlaben, the dairy co-operative's voice assistant, and MahaVISTAAR, Maharashtra's farm advisory platform.
+    - label: What goes in
+      text: A spoken question in Gujarati or Marathi, the farmer's phone number, and the animal's name or ID.
+    - label: What comes out
+      text: Personal advice on animal health, feeding, breeding, vaccination and government schemes.
+    - label: Who checks it
+      text: Specialists step in for serious cases. The assistant connected Meenaben to one.
+    - label: Language
+      text: Local languages, by voice, so farmers don't need to read or type.
+    steps:
+    - role: person
+      text: Gayatriben's buffalo keeps banging its head against a tree, so she asks Sarlaben by voice.
+    - role: ai
+      text: The assistant recognises her phone number and looks up her animals in the co-op's records.
+    - role: ai
+      text: It suggests cleaning the area with oil and applying turmeric. The problem clears up.
+    - role: expert
+      text: When Meenaben's cow has a difficult birth, the assistant recognises how serious it is and connects her to a specialist.
+    - role: outcome
+      text: Meenaben's cow survives, and in Maharashtra Dipali Kalbhor's fertiliser use falls by about 15%.
+    worked: Linking the assistant to records farmers already have makes the advice specific to their animal, not generic.
+    limits: Farmers' accounts only, with no published evaluation. Serious cases still need a vet.
+    sources:
+    - label: The Better India
+      url: https://thebetterindia.com/farming/ai-for-farmers-india-sarlaben-mahavistaar-local-language-cattle-crops-12574226/amp
+    clinical: false
+    tools:
+    - label: Phone line
+      text: WhatsApp Business Cloud API, or Twilio and Exotel for voice calls
+    - label: Indian languages
+      text: AI4Bharat speech and translation models (IndicConformer, IndicTrans2) or the government's Bhashini APIs
+    - label: Answers
+      text: An LLM with retrieval over veterinary and extension guides, using LlamaIndex and Chroma
+    - label: Animal records
+      text: PostgreSQL, looked up by the caller's phone number
+- id: c08
+  category:
+  - space
+  use_case: Earth-observation knowledge assistant
+  place: Europe
+  new: true
+  reported: 8 October 2026
+  figure: Open
+  figure_note: model, code, training data and benchmarks published on Hugging Face and GitHub
+  headline: ESA opened a conversational Earth-observation expert to everyone
+  who: Researchers, policymakers, journalists and the public; released by the European Space Agency on 8 October
+  paragraphs:
+  - Satellite knowledge about our planet is vast and technical. ESA's Φ-lab, with Pi School, Mistral, Imperative Space and the publisher Wiley, built EVE, the Earth Virtual Expert. People ask questions in plain language and EVE answers by summarising and translating Earth-observation knowledge. It is trained on ESA, NASA and Copernicus material and peer-reviewed research, searches newer papers before answering, and uses a second model as a judge to flag answers that need revising. The model, code, training data and benchmarks are all public.
+  quote: ''
+  care: ESA notes that language models can still produce claims not supported by evidence; the judge reduces this but doesn't remove it. Searching satellite imagery directly is planned for 2027.
+  stamp: Public body · News
+  links:
+  - label: European Space Agency, 8 Oct 2026
+    url: https://www.esa.int/Applications/Observing_the_Earth/FutureEO/Introducing_ESA_s_Earth_Virtual_Expert
+  - label: SpaceWatch.GLOBAL, 9 Oct 2026
+    url: https://spacewatch.global/2026/10/esa-releases-ai-powered-earth-virtual-expert-eve-to-make-earth-observation-knowledge-more-accessible/
+  trace:
+    title: Ask the planet a question
+    area: Space technologies
+    summary: A domain-tuned language model answers Earth-observation questions, grounded by retrieval and checked by a second model.
+    facts:
+    - label: The problem
+      text: Earth-observation knowledge is spread across technical papers and agency sites that non-specialists struggle to use.
+    - label: AI used
+      text: EVE, a large language model from ESA Φ-lab with Pi School, Mistral, Imperative Space and Wiley.
+    - label: What goes in
+      text: Plain-language questions about Earth science and observation.
+    - label: What comes out
+      text: Summarised answers, with translation where needed.
+    - label: Who checks it
+      text: An “LLM-as-a-judge” reviews each answer and flags content to revise or filter.
+    - label: Openness
+      text: Model, code, curated datasets and benchmarks are public on Hugging Face and GitHub.
+    steps:
+    - role: person
+      text: For example, a journalist asks how a recent drought shows up in satellite data.
+    - role: ai
+      text: EVE searches recent peer-reviewed articles and agency material.
+    - role: ai
+      text: It drafts an answer from its training on ESA, NASA and Copernicus content plus what it retrieved.
+    - role: ai
+      text: A judge model checks the draft and flags anything unsupported.
+    - role: outcome
+      text: The user gets a plain-language answer. Next, EVE will analyse data directly, with satellite imagery search from 2027.
+    worked: Grounding in curated, peer-reviewed sources and publishing everything openly makes it easier to trust and to check.
+    limits: Unsupported claims are reduced, not eliminated. Data analysis and imagery search are still to come.
+    sources:
+    - label: ESA
+      url: https://www.esa.int/Applications/Observing_the_Earth/FutureEO/Introducing_ESA_s_Earth_Virtual_Expert
+    - label: SpaceWatch.GLOBAL
+      url: https://spacewatch.global/2026/10/esa-releases-ai-powered-earth-virtual-expert-eve-to-make-earth-observation-knowledge-more-accessible/
+    clinical: false
+    tools:
+    - label: Model
+      text: EVE itself is published openly; or start from an open model such as Mistral
+    - label: Retrieval
+      text: LlamaIndex or Haystack over ESA, NASA and Copernicus documents
+    - label: Checking answers
+      text: A second model as judge, with evaluation tools such as Ragas or DeepEval
+    - label: Real data next
+      text: Copernicus Data Space APIs with xarray, to answer with actual satellite data

@@ -1,0 +1,25 @@
+/* Inline SVG illustrations: colour classes and the hero animation. */
+.ill .bg { fill: var(--accent-soft); }
+.ill .ink { fill: var(--ink); }
+.ill .acc { fill: var(--accent); }
+.ill .mk { fill: var(--mark); }
+.ill .sh { fill: var(--sheet); }
+.ill .pa { fill: var(--paper); }
+.ill .pe { fill: var(--r-person); }
+.ill .ex { fill: var(--r-expert); }
+.ill .ru { fill: var(--rule); }
+.ill .st { fill: none; stroke: var(--ink); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.ill .sa { fill: none; stroke: var(--accent); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+.ill .sm { fill: none; stroke: var(--mark); stroke-width: 4; stroke-linecap: round; }
+.ill .sr { fill: none; stroke: var(--rule); stroke-width: 2; stroke-dasharray: 3 7; stroke-linecap: round; }
+.ill .sl { fill: none; stroke: var(--muted); stroke-width: 2; stroke-linecap: round; }
+.ill .sp { fill: none; stroke: var(--paper); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+@media (prefers-reduced-motion: no-preference) {
+  .hero-art .orbit { transform-origin: 270px 230px; animation: spin 90s linear infinite; }
+  .hero-art .orbit .badge { transform-box: fill-box; transform-origin: center; animation: spin 90s linear infinite reverse; }
+  .hero-art .typing circle { animation: blink 1.4s infinite; }
+  .hero-art .typing circle:nth-child(2) { animation-delay: .2s; }
+  .hero-art .typing circle:nth-child(3) { animation-delay: .4s; }
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes blink { 0%, 80%, 100% { opacity: .25; } 40% { opacity: 1; } }

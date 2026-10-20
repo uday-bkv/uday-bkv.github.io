@@ -1,0 +1,25 @@
+/* Design tokens: colours for light and dark themes, and the three type families. */
+:root { --paper: #eef1ec;
+  --sheet: #f8faf6;
+  --ink: #1b2521;
+  --muted: #56645d;
+  --rule: #cdd6cf;
+  --accent: #1f5c4a;
+  --accent-soft: #dbe8e1;
+  --mark: #e3b23c;
+  --r-person: #9a6512;
+  --r-ai: #1f5c4a;
+  --r-expert: #3a5a8f;
+  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #131a17; --sheet: #1a2420; --ink: #e5ece7; --muted: #9db0a6;
+    --rule: #2e3c35; --accent: #7cc4a8; --accent-soft: #23362e; --mark: #e8bf55; --r-person: #e8bf55; --r-ai: #7cc4a8; --r-expert: #9db8e6;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] { --paper: #131a17; --sheet: #1a2420; --ink: #e5ece7; --muted: #9db0a6;
+  --rule: #2e3c35; --accent: #7cc4a8; --accent-soft: #23362e; --mark: #e8bf55; --r-person: #e8bf55; --r-ai: #7cc4a8; --r-expert: #9db8e6;
+  color-scheme: dark; }

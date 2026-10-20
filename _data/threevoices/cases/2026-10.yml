@@ -1,0 +1,194 @@
+# October 2026
+# One conversational AI use case per domain: autism care, agriculture, space technologies.
+- id: c01
+  category:
+  - autism
+  use_case: Social-skills practice
+  place: USA
+  new: false
+  reported: 19 July 2026
+  figure: 17% → 51%
+  figure_note: appropriate empathetic replies in real conversations, before and after four weeks of practice
+  headline: Autistic teens and adults practised empathetic replies with a chatbot coach
+  who: 30 autistic people aged 11 to 35 in a Stanford randomised trial, and 3 young adults on a hospital internship
+  paragraphs:
+  - Noora, built by a Stanford team led by Lynn Kern Koegel with computer scientist Monica Lam's group, shows a short statement, such as someone complaining about a stressful job. The user says whether it is positive, negative or neutral, then replies by voice or text and gets instant feedback, with a better reply to try when needed. In a randomised trial, people who practised for about four weeks raised their rate of appropriate empathetic responses in real video conversations from about 17% to 51%, while the waitlist group barely changed. In a separate workplace study, three interns also improved in unprompted conversations with job coaches.
+  quote: “Noora was not designed to be a ‘friend’ replacement.” Lynn Kern Koegel
+  care: The trial compared Noora with a waitlist, not with human-led therapy, and the workplace study had three people. Long-term effects aren't known.
+  stamp: Peer-reviewed · News
+  links:
+  - label: PsyPost, 19 Jul 2026
+    url: https://www.psypost.org/stanford-scientists-ai-chatbot-helps-autistic-adults-improve-face-to-face-communication-studies-show/
+  - label: Journal of Autism and Developmental Disorders (trial)
+    url: https://link.springer.com/article/10.1007/s10803-025-06734-x
+  trace:
+    title: A practice partner with scripted, checked prompts
+    area: Medical · Autism
+    summary: A chatbot gives short, human-checked practice statements and instant feedback, so users can rehearse empathetic replies before real conversations.
+    facts:
+    - label: The problem
+      text: Responding with empathy in conversation can be hard for some autistic people, and one-to-one coaching is costly.
+    - label: AI used
+      text: Noora, a chatbot from Stanford researchers. Its practice statements are pre-written and human-verified rather than generated freely.
+    - label: What goes in
+      text: The user's rating of a statement's tone, then their spoken or typed reply.
+    - label: What comes out
+      text: 'Immediate feedback: a celebration for a supportive reply, or a suggested better reply.'
+    - label: Who checks it
+      text: Researchers wrote and verified every prompt; independent raters scored real conversations.
+    - label: How we know
+      text: A randomised waitlist trial with 30 participants and a three-person workplace study.
+    steps:
+    - role: person
+      text: The user opens Noora and reads a statement, for example someone describing a stressful day at work.
+    - role: person
+      text: They label it positive, negative or neutral, then answer by speaking or typing.
+    - role: ai
+      text: 'Noora judges the reply and responds at once: a celebration for a supportive answer, or a model reply to try next time.'
+    - role: person
+      text: They practise about ten statements a day, five days a week, for four weeks.
+    - role: outcome
+      text: Appropriate empathetic replies in real conversations rose from about 17% to 51%. 71% of users improved and 67% enjoyed it.
+    worked: Keeping prompts scripted and verified avoids the risks of open-ended chat, and voice input let users practise the way they actually talk.
+    limits: Compared only with a waitlist, small samples, and long-term effects unmeasured.
+    sources:
+    - label: PsyPost
+      url: https://www.psypost.org/stanford-scientists-ai-chatbot-helps-autistic-adults-improve-face-to-face-communication-studies-show/
+    - label: JADD trial
+      url: https://link.springer.com/article/10.1007/s10803-025-06734-x
+    clinical: true
+    tools:
+    - label: Models
+      text: Claude, GPT‑4o or Gemini to score replies, or a small open model such as Llama run locally with Ollama
+    - label: Practice content
+      text: A bank of statements written and reviewed by clinicians, stored as JSON or a spreadsheet
+    - label: Speech
+      text: Whisper for spoken replies; the browser's speech recognition for quick prototypes
+    - label: Interface
+      text: Streamlit or a simple web app that tracks progress per session
+- id: c02
+  category:
+  - agriculture
+  use_case: Farm records by voice
+  place: Australia
+  new: true
+  reported: 12 October 2026
+  figure: '20'
+  figure_note: farms piloting the assistant, with more than 40 waiting to join
+  headline: Australian farmers started doing their paperwork by voice note from the paddock
+  who: Andrew Gill, a cotton, beef and sheep producer in central-west New South Wales, and other farms in a co-operative trial
+  paragraphs:
+  - Regen Farmers Mutual, a farmer-owned co-operative, is piloting a conversational assistant on 20 farms. Farmers record work as they go by voice note, photo or text, in the paddock, on machinery or in the livestock yards. The assistant updates the farm's records and prepares the paperwork, such as treatment records and stock inventory after a livestock treatment, so nothing has to be typed up at night. It learns each farm's own words for paddocks, mobs and staff shorthand, and connects to existing farm software, weather and machinery data. Andrew Gill uses it to track which paddocks his sheep are in and compares that with satellite imagery to estimate how much feed is left.
+  quote: “For a lot of farming families, paperwork happens after the day's actual farming is finished.” Christophe Bur, co-director
+  care: An early pilot with no measured results yet, such as hours saved.
+  stamp: News
+  links:
+  - label: IT Brief Australia, 12 Oct 2026
+    url: https://itbrief.com.au/story/australian-farms-test-ai-assistant-to-cut-paperwork
+  trace:
+    title: A voice-first farm record keeper
+    area: Agriculture
+    summary: Farmers say or snap what they did, and the assistant turns it into updated records and paperwork.
+    facts:
+    - label: The problem
+      text: Compliance paperwork piles up after the working day. AI use in Australian agriculture is about 3%, against a 12% national average.
+    - label: AI used
+      text: A conversational assistant trialled by Regen Farmers Mutual, a farmer-owned co-operative.
+    - label: What goes in
+      text: Voice notes, photos and text sent from the field.
+    - label: What comes out
+      text: Updated treatment records, inventory and prepared documents.
+    - label: Who checks it
+      text: Farmers review the records and test the tool with the co-op in weekly “AI gym” sessions.
+    - label: Connects to
+      text: Existing farm management software, weather data, machinery, sensors and commodity data.
+    steps:
+    - role: person
+      text: For example, after treating a mob of cattle a farmer records a quick voice note in the yards.
+    - role: ai
+      text: The assistant understands the farm's own names for paddocks and mobs.
+    - role: ai
+      text: It updates the treatment record, adjusts the medicine inventory and drafts the required documents.
+    - role: person
+      text: Farmers check the records and refine the tool in weekly sessions with the co-op.
+    - role: outcome
+      text: Records are kept as work happens. Andrew Gill matches sheep movements with satellite imagery to estimate feed.
+    worked: It fits the farm day instead of adding screen time, and adapts to each farm's vocabulary.
+    limits: An early pilot with no measured savings yet.
+    sources:
+    - label: IT Brief Australia
+      url: https://itbrief.com.au/story/australian-farms-test-ai-assistant-to-cut-paperwork
+    clinical: false
+    tools:
+    - label: Capture
+      text: WhatsApp Business Cloud API or a Telegram bot for voice notes and photos
+    - label: Speech
+      text: Whisper (or faster-whisper) for transcription, with a custom vocabulary of farm names
+    - label: Understanding
+      text: An LLM with structured (JSON) output that turns notes into records
+    - label: Records and data
+      text: PostgreSQL or Airtable, Open-Meteo for weather, and farm-software APIs where available
+- id: c03
+  category:
+  - space
+  use_case: Medical assistant for astronauts
+  place: USA · Low Earth orbit
+  new: true
+  reported: 2 October 2026
+  figure: 88%
+  figure_note: accuracy on physician-graded ankle-injury test cases
+  headline: NASA is building a talking medical assistant for crews far from a doctor
+  who: Future crews on long missions, reported as SpaceX Crew‑13 launched to the space station on 1 October
+  paragraphs:
+  - On long missions, crews may not reach a doctor on Earth in time. NASA's Human Research Program, working with Google, is developing the Crew Medical Officer Digital Assistant. An astronaut can describe symptoms by voice or text and add images, and it returns a structured assessment with possible diagnoses and treatment guidance. In physician-graded test cases it was 88% accurate for ankle injuries, 80% for ear pain and 74% for flank pain. NASA keeps ownership of the source code.
+  quote: ''
+  care: It is not a cleared medical device, and NASA has announced no date for using it in flight. The accuracy figures come from simulated exam cases.
+  stamp: News
+  links:
+  - label: Travelers Today, 2 Oct 2026
+    url: https://www.travelerstoday.com/articles/61069/20261002/spacex-crew-13-sets-us-speed-record-while-bringing-ai-diagnostic-tools-space-station.htm
+  trace:
+    title: A spoken clinical assistant for the crew medical officer
+    area: Space technologies
+    summary: Astronauts describe symptoms by voice, text or photo, and the assistant returns a structured assessment when Earth is out of reach.
+    facts:
+    - label: The problem
+      text: On missions to the Moon or Mars, communication delays mean a doctor on Earth can't always help in time.
+    - label: AI used
+      text: The Crew Medical Officer Digital Assistant (CMO-DA), from NASA's Human Research Program with Google.
+    - label: What goes in
+      text: Speech, text and images describing symptoms.
+    - label: What comes out
+      text: Possible diagnoses and treatment guidance in a structured format.
+    - label: Who checks it
+      text: Physicians graded its answers on standard exam-style test cases.
+    - label: Status
+      text: Not a cleared medical device, and no flight date announced.
+    steps:
+    - role: person
+      text: For example, a crew member with ankle pain describes what happened, by voice or text.
+    - role: person
+      text: They add a photo of the swelling.
+    - role: ai
+      text: The assistant combines speech, text and image into a structured assessment.
+    - role: ai
+      text: It suggests likely diagnoses and treatment steps the crew medical officer can follow.
+    - role: expert
+      text: In testing, physicians graded each assessment against standard exam cases.
+    - role: outcome
+      text: 88% accuracy for ankle injuries, 80% for ear pain and 74% for flank pain in testing.
+    worked: Accepting voice, text and images lets an astronaut describe a problem naturally, without medical vocabulary.
+    limits: Simulated cases only, not a cleared device, and no deployment date.
+    sources:
+    - label: Travelers Today
+      url: https://www.travelerstoday.com/articles/61069/20261002/spacex-crew-13-sets-us-speed-record-while-bringing-ai-diagnostic-tools-space-station.htm
+    clinical: true
+    tools:
+    - label: Models
+      text: Multimodal models (Gemini, GPT‑4o, Claude), or open models such as MedGemma for offline experiments
+    - label: Offline running
+      text: llama.cpp or Ollama on a laptop, since a crew may have no connection
+    - label: Practice cases
+      text: Exam-style medical question sets such as MedQA, plus your own OSCE-style scenarios
+    - label: Speech
+      text: Whisper for voice input and Piper for spoken output

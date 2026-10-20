@@ -1,0 +1,48 @@
+# Copy to _data/threevoices/cases/YYYY-MM.yml.
+# Each issue has exactly three entries, one per domain:
+#   c01 = autism, c02 = agriculture, c03 = space
+# Copy the entry below three times and fill each in.
+- id: c01
+  category: [autism]            # one of: autism, agriculture, space
+  use_case: Short label, e.g. Social-skills practice
+  new: true                     # reported in this issue's month
+  reported: 1 November 2026
+  place: Country
+  figure: "17"                  # the headline number shown in the margin
+  figure_note: what the number means
+  headline: A short sentence about the person and what changed
+  who: Who the person is
+  paragraphs:
+    - What happened, in plain words.
+  quote: ""                     # optional
+  care: ""                      # optional caveat shown as "Read with care"
+  stamp: News                   # source type: News, Peer-reviewed, University, Public body, Non-profit
+  links:
+    - label: Outlet name, date
+      url: https://example.org/story
+  trace:
+    title: Scenario title for How it works
+    area: Medical · Autism
+    summary: One sentence on how the AI was used.
+    facts:
+      - { label: The problem, text: "..." }
+      - { label: AI used, text: "..." }
+      - { label: What goes in, text: "..." }
+      - { label: What comes out, text: "..." }
+      - { label: Who checks it, text: "..." }
+      - { label: How we know, text: "..." }
+    steps:                       # role: person, ai, expert or outcome
+      - { role: person, text: "..." }
+      - { role: ai, text: "..." }
+      - { role: expert, text: "..." }
+      - { role: outcome, text: "..." }
+    worked: Why it worked.
+    limits: What the evidence can't show.
+    sources:
+      - { label: Outlet, url: "https://example.org/story" }
+    clinical: false              # true adds the "learning prototype only" health note
+    tools:
+      - { label: Models, text: "..." }
+      - { label: Data, text: "..." }
+      - { label: Frameworks, text: "..." }
+      - { label: Interface, text: "..." }

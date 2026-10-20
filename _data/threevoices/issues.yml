@@ -1,0 +1,9 @@
+# Newest issue first. The first entry is treated as the latest release.
+# Each issue has three cases: one for autism, one for agriculture, one for space.
+# Each issue needs a matching _data/cases/<slug>.yml and two pages in issues/<slug>/.
+- slug: 2026-10
+  number: ''
+  month: October 2026
+  title: 
+  summary: One conversational AI use case from each domain — autism care, agriculture and space.
+  compiled: Compiled 19 October 2026

@@ -1,0 +1,11 @@
+---
+layout: null   # keep the default HTML layout off this stylesheet
+# Jekyll stitches the partials in _includes/css into one stylesheet.
+---
+{% include threevoices/css/01-tokens.css %}
+{% include threevoices/css/02-base.css %}
+{% include threevoices/css/03-cases.css %}
+{% include threevoices/css/04-home.css %}
+{% include threevoices/css/05-issues.css %}
+{% include threevoices/css/06-how.css %}
+{% include threevoices/css/07-illustrations.css %}

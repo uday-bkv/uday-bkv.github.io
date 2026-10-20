@@ -1,0 +1,15 @@
+---
+layout: tv-default
+---
+{% assign issue = site.data.threevoices.issues | where: "slug", page.issue | first %}
+{% assign cases = site.data.threevoices.cases[page.issue] %}
+{% include threevoices/issuebar.html %}
+<header class="page-head">
+
+  <h1>{{ issue.title }}</h1>
+  <p class="lede">{{ issue.summary }}</p>
+  <div class="ledger"><span>{{ issue.compiled }}</span><span><b>{{ cases.size }}</b> cases</span></div>
+</header>
+<main class="cases" id="cases">
+{% for c in cases %}{% include threevoices/case-record.html %}{% endfor %}
+</main>

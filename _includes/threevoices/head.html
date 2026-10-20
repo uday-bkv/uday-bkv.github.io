@@ -1,0 +1,13 @@
+<script>
+  /* follow the black/white choice made on the main site (same storage key) */
+  (function(){ try { var t = localStorage.getItem('sg-theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch(e) {} })();
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{% if page.title %}{{ page.title }} · {{ site.threevoices.title }}{% else %}{{ site.threevoices.title }}{% endif %}</title>
+<meta name="description" content="{{ page.description | default: site.threevoices.description }}">
+<link rel="icon" type="image/svg+xml" href="{{ '/threevoices/assets/images/favicon.svg' | relative_url }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="{{ site.threevoices.fonts_url }}">
+<link rel="stylesheet" href="{{ '/threevoices/assets/css/main.css' | relative_url }}">

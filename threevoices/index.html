@@ -1,0 +1,32 @@
+---
+layout: tv-default
+nav: home
+description: Conversational AI use cases and applied scenarios in autism care, agriculture and space, compiled monthly.
+permalink: /threevoices/
+sitemap: true
+---
+{% assign latest = site.data.threevoices.issues[0] %}
+{% assign prev = site.data.threevoices.issues[1] %}
+{% assign latest_cases = site.data.threevoices.cases[latest.slug] %}
+{% capture latest_dir %}/threevoices/issues/{{ latest.slug }}/{% endcapture %}
+<section class="home-hero">
+  <div class="copy">
+    <h1>Conversational AI, <em>applied</em></h1>
+    <p class="lede">Each month, one real use case of AI that people talk to, from each of three domains: autism care, agriculture and space.</p>
+    <div class="btns">
+      <a class="btn primary" href="{{ latest_dir | append: 'cases.html' | relative_url }}">Read this month's cases</a>
+      <a class="btn ghost" href="{{ latest_dir | append: 'how-it-works.html' | relative_url }}">How they work</a>
+    </div>
+  </div>
+  <div class="hero-art">{% include threevoices/illustrations/hero.svg %}</div>
+</section>
+
+<section class="release solo" aria-label="This month">
+  <div class="rel-card latest">
+    <!-- <span class="rel-tag"><b>{{ latest.month }}</b>  {{ latest.number }}</span> -->
+    <h2>{{ latest.title }}</h2>
+    <p>{{ latest.summary }}</p>
+    <ol class="rel-list">{% for c in latest_cases %}{% assign cat = site.data.threevoices.categories | where: "key", c.category[0] | first %}<li><a href="{{ latest_dir | append: 'cases.html#' | append: c.id | relative_url }}"><span>{{ c.headline }} <em class="newpill">{{ cat.label }}</em></span></a></li>{% endfor %}</ol>
+    {% if prev %}<p class="rel-more"><a href="{{ '/threevoices/archive.html' | relative_url }}">Earlier issues →</a></p>{% endif %}
+  </div>
+</section>

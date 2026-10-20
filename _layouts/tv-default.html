@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head>
+{% include threevoices/head.html %}
+</head>
+<body>
+<div class="wrap{% if page.wide %} wide{% endif %}">
+{% include threevoices/header.html %}
+{{ content }}
+{% include threevoices/footer.html %}
+</div>
+{% for script in page.scripts %}<script src="{{ script | relative_url }}"></script>
+{% endfor %}</body>
+</html>

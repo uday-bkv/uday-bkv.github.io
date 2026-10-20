@@ -1,0 +1,22 @@
+{% comment %} One case record. Expects `c` (an entry from _data/cases/<slug>.yml). {% endcomment %}
+<article class="case" id="{{ c.id }}" data-cat="{{ c.category | join: ' ' }}">
+  <div class="margin">
+    <div class="fileno">Case {{ c.id | remove: 'c' }} · {{ c.place }}</div>
+    <div class="figure">{{ c.figure }}</div>
+    <div class="figure-note">{{ c.figure_note }}</div>
+    <div class="reported">Reported {{ c.reported }}</div>
+  </div>
+  <div>
+    <div class="tags"><span class="usecase">{{ c.use_case }}</span>{% if c.new %}<span class="newpill">New this month</span>{% endif %}</div>
+    <h3>{{ c.headline }}</h3>
+    <p class="who">{{ c.who }}</p>
+    {% for p in c.paragraphs %}<p>{{ p }}</p>{% endfor %}
+    {% if c.quote != "" %}<blockquote>{{ c.quote }}</blockquote>{% endif %}
+    {% if c.care != "" %}<div class="care"><b>Read with care:</b> {{ c.care }}</div>{% endif %}
+    <div class="foot">
+      <span class="stamp">{{ c.stamp }}</span>
+      {% for l in c.links %}<a href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }} ↗</a>{% endfor %}
+      <a class="howlink" href="how-it-works.html#{{ c.id }}">How it was done →</a>
+    </div>
+  </div>
+</article>

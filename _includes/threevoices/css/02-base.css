@@ -1,0 +1,41 @@
+/* Base elements and site chrome: page wrapper, header, navigation, buttons, page headings, footer. */
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink);
+  font-family: var(--body); font-size: 1.0625rem; line-height: 1.6;
+  padding-inline: 20px; padding-block: 0 64px; }
+.wrap { max-width: 980px; margin: 0 auto; }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.eyebrow { font-family: var(--mono); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-weight: 800; font-size: clamp(2.4rem, 7vw, 4.6rem);
+  line-height: .98; letter-spacing: -.025em; margin: 0; text-wrap: balance; max-width: 15ch; }
+[hidden] { display: none !important; }
+.wrap.wide { max-width: 1180px; }
+.site-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px 28px; padding-block: 18px; border-bottom: 1px solid var(--rule); }
+.brand { font-family: var(--display); font-weight: 800; font-size: 1.12rem; letter-spacing: -.01em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+.brand i { width: 14px; height: 18px; background: var(--accent); border-radius: 2px 6px 2px 2px; display: inline-block; box-shadow: 4px -4px 0 -1px var(--mark); }
+.site-nav { display: flex; flex-wrap: wrap; gap: 4px 22px; font-family: var(--mono); font-size: .85rem; }
+.site-nav a { color: var(--muted); text-decoration: none; padding-block: 4px; border-bottom: 2px solid transparent; }
+.site-nav a:hover { color: var(--ink); }
+.site-nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--mark); }
+.site-foot { margin-top: 56px; padding-block: 22px; border-top: 1px solid var(--rule); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; font-family: var(--mono); font-size: .78rem; color: var(--muted); }
+.page-head { padding-block: 44px 28px; border-bottom: 1px solid var(--rule); display: grid; gap: 14px; }
+.page-head h1 { font-size: clamp(2.1rem, 5.5vw, 3.6rem); max-width: 20ch; }
+.page-head .lede { font-size: 1.12rem; }
+.howlink { font-weight: 500; }
+.brand { font-size: 1.35rem; letter-spacing: -.02em; white-space: nowrap; line-height: 1.1; }
+@media (max-width: 520px) {
+  .brand small { display: none; }
+}
+.brand svg { width: 26px; height: 26px; flex: none; }
+.brand small { font-family: var(--mono); font-weight: 400; font-size: .72rem; letter-spacing: .08em; color: var(--muted); text-transform: uppercase; margin-left: 4px; }
+.btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn { font-family: var(--mono); font-size: .88rem; text-decoration: none; padding: 11px 18px; border-radius: 999px; border: 1px solid var(--accent); }
+.btn.primary { background: var(--accent); color: var(--paper); }
+.btn.primary:hover { filter: brightness(1.1); }
+.btn.ghost { color: var(--accent); background: transparent; }
+.btn.ghost:hover { background: var(--accent-soft); }
+
+/* link back to the main site (added when Three Voices moved under /threevoices/) */
+.site-nav a.tv-back { padding-left: 22px; border-left: 1px solid currentColor; border-bottom-color: transparent; opacity: .8; }
+.site-nav a.tv-back:hover { opacity: 1; }

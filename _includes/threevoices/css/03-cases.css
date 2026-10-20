@@ -1,0 +1,47 @@
+/* Case records: filters, the case card with its margin figure, care notes, sources lists. */
+.rules { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px 40px; padding-block: 28px; border-bottom: 1px solid var(--rule); }
+.rules h2 { font-family: var(--display); font-size: 1rem; font-weight: 700; margin: 0 0 6px; }
+.rules p { margin: 0; color: var(--muted); font-size: .97rem; }
+nav.filters { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 2; background: var(--paper); padding-block: 14px; border-bottom: 1px solid var(--rule); display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+nav.filters span { font-family: var(--mono); font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-right: 4px; }
+.chip { font-family: var(--mono); font-size: .82rem; border: 1px solid var(--rule); background: var(--sheet); color: var(--ink);
+  padding: 6px 12px; border-radius: 999px; cursor: pointer; }
+.chip:hover { border-color: var(--accent); }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--paper); }
+.cases { display: grid; gap: 0; }
+article.case { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 12px 40px;
+  padding-block: 36px; border-bottom: 1px solid var(--rule); }
+.margin { display: grid; align-content: start; gap: 10px; }
+.fileno { font-family: var(--mono); font-size: .75rem; color: var(--muted); letter-spacing: .08em; }
+.figure { font-family: var(--display); font-weight: 800; font-size: 2.6rem; line-height: 1; letter-spacing: -.02em; color: var(--accent); font-variant-numeric: tabular-nums; }
+.figure-note { font-size: .88rem; color: var(--muted); line-height: 1.4; }
+.case h3 { font-family: var(--display); font-weight: 700; font-size: 1.6rem; line-height: 1.15; margin: 0 0 4px; text-wrap: balance; }
+.who { font-family: var(--mono); font-size: .82rem; color: var(--muted); margin: 0 0 14px; }
+.case p { margin: 0 0 12px; max-width: 64ch; }
+.case blockquote { margin: 4px 0 14px; padding-left: 16px; border-left: 3px solid var(--mark); font-style: italic; max-width: 60ch; }
+.foot { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; margin-top: 6px; }
+.stamp { font-family: var(--mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--accent); color: var(--accent); border-radius: 3px; }
+.foot a { font-family: var(--mono); font-size: .82rem; }
+.care { font-size: .93rem; color: var(--muted); background: var(--accent-soft); padding: 10px 14px; border-radius: 6px; max-width: 64ch; margin-top: 10px; }
+.care b { color: var(--ink); font-weight: 600; }
+section.caveats { padding-block: 44px 8px; display: grid; gap: 16px; }
+section.caveats h2, section.sources h2 { font-family: var(--display); font-weight: 800; font-size: 1.9rem; margin: 0; letter-spacing: -.01em; }
+.caveats ul { margin: 0; padding-left: 1.2em; display: grid; gap: 10px; max-width: 70ch; }
+section.sources { padding-block: 40px 0; display: grid; gap: 14px; }
+.srclist { margin: 0; padding-left: 1.4em; font-size: .95rem; display: grid; gap: 6px; }
+.srclist span { font-family: var(--mono); font-size: .75rem; color: var(--muted); }
+.empty { padding-block: 40px; color: var(--muted); }
+@media (max-width: 680px) {
+  article.case { grid-template-columns: 1fr; gap: 14px; }
+  .margin { grid-template-columns: auto 1fr; align-items: baseline; column-gap: 14px; }
+  .margin .fileno { grid-column: 1 / -1; }
+  .figure { font-size: 2.1rem; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  article.case { transition: opacity .2s ease; }
+}
+.fileno { text-transform: uppercase; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px 8px; margin: 0 0 8px; }
+.usecase { font-family: var(--mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); padding: 3px 8px; border-radius: 3px; }
+.newpill { font-family: var(--mono); font-style: normal; font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; background: var(--mark); color: #1b2521; padding: 2px 7px; border-radius: 3px; white-space: nowrap; }
+.reported { font-family: var(--mono); font-size: .72rem; color: var(--muted); }

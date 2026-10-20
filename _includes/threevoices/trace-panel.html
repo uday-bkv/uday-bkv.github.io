@@ -1,0 +1,27 @@
+{% comment %} One How-it-works panel. Expects `c` and `is_first`. {% endcomment %}
+{% assign t = c.trace %}
+<section class="panel" role="tabpanel" id="{{ c.id }}" aria-labelledby="tab-{{ c.id }}"{% unless is_first %} hidden{% endunless %}>
+  <div class="panel-top">
+    <div class="eyebrow">Case {{ c.id | remove: 'c' }} · {{ c.place }} · {{ t.area }}</div>
+    <div class="tags"><span class="usecase">{{ c.use_case }}</span>{% if c.new %}<span class="newpill">New this month</span>{% endif %}</div>
+    <h2>{{ t.title }}</h2>
+    <p class="summary">{{ t.summary }}</p>
+  </div>
+  <div><h3>At a glance</h3>
+    <dl class="facts">{% for f in t.facts %}<div><dt>{{ f.label }}</dt><dd>{{ f.text }}</dd></div>{% endfor %}</dl>
+  </div>
+  <div><h3>Step by step</h3>
+    <ol class="steps">{% for s in t.steps %}
+      <li class="r-{{ s.role }}"><span class="dot" aria-hidden="true"></span><div class="body"><span class="role">{% case s.role %}{% when 'ai' %}AI{% when 'person' %}Person{% when 'expert' %}Expert{% else %}Outcome{% endcase %}</span><p class="step-text">{{ s.text }}</p></div></li>{% endfor %}
+    </ol>
+  </div>
+  <div class="twocol">
+    <div><h3>Why it worked</h3><p>{{ t.worked }}</p></div>
+    <div><h3>Limits</h3><p>{{ t.limits }}</p></div>
+  </div>
+  <div class="tools"><h3>Build a similar prototype</h3>
+    <p class="tools-note">{% if t.clinical %}Real tools you can use to build a learning prototype of this kind of service. A prototype is for learning only: anything touching health needs clinical validation and regulatory approval.{% else %}Real tools you can use to build a learning prototype of this kind of service, mostly free or open source.{% endif %}</p>
+    <dl class="tool-grid">{% for tool in t.tools %}<div><dt>{{ tool.label }}</dt><dd>{{ tool.text }}</dd></div>{% endfor %}</dl>
+  </div>
+  <div class="foot"><span class="stamp">Sources</span>{% for l in t.sources %}<a href="{{ l.url }}" target="_blank" rel="noopener">{{ l.label }} ↗</a>{% endfor %}<a class="howlink" href="cases.html#{{ c.id }}">Read the full case →</a></div>
+</section>
