@@ -1,0 +1,102 @@
+---
+layout: archive
+title: ""
+permalink: /writing/
+author_profile: false
+---
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     "Signal & System" — Writing hub: one page that leads to the
+     writing sections listed in _data/writing.yml. Colours come from the site theme tokens.
+     ============================================================ */
+  .wr{
+    max-width: 1060px; margin: 0 auto; padding: 2.25rem 1.25rem 3.5rem;
+    font-family: 'IBM Plex Sans', sans-serif; color: var(--sys-ink-muted); line-height: 1.6;
+  }
+  .wr a{ text-decoration: none; }
+
+  .wr-label{
+    font-family:'IBM Plex Mono', monospace; font-size:0.74rem; color: var(--sys-ink-dim);
+    margin-bottom:0.9rem; display:flex; align-items:center; gap:0.55rem;
+  }
+  .wr-label::before{ content:''; width:5px; height:5px; border-radius:50%; background:var(--sys-warm); }
+  .wr-title{
+    font-family:'Space Grotesk', sans-serif; font-weight:700;
+    font-size: clamp(1.9rem, 4.6vw, 2.5rem); color: var(--sys-ink); letter-spacing:-0.01em; margin:0 0 0.6rem;
+  }
+  .wr-sub{ max-width: 60ch; font-size:1rem; margin:0 0 2rem; }
+
+  .wr-grid{
+    display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem;
+    padding-top: 1.75rem; border-top: 1px solid var(--sys-line);
+  }
+
+  .wr-card{
+    display:flex; flex-direction:column;
+    border:1px solid var(--sys-line); border-radius:14px; background: var(--sys-panel);
+    padding: 1.4rem 1.4rem 1.2rem;
+  }
+  .wr-card__head{ display:flex; align-items:baseline; justify-content:space-between; gap:1rem; margin-bottom:0.35rem; }
+  .wr-card h2{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:1.25rem; margin:0; }
+  .wr-card h2 a{ color: var(--sys-ink) !important; }
+  .wr-card h2 a:hover{ color: var(--sys-warm) !important; }
+  .wr-count{ font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color: var(--sys-ink-dim); white-space:nowrap; }
+  .wr-card__desc{ font-size:0.9rem; margin:0 0 1rem; }
+
+  .wr-list{ list-style:none; margin:0 0 1rem; padding:0; flex:1; }
+  .wr-list li{ margin:0; border-top:1px solid var(--sys-line); }
+  .wr-list a{
+    display:grid; grid-template-columns: 4.6rem 1fr; gap:0.75rem; align-items:baseline;
+    padding:0.6rem 0; color: var(--sys-ink) !important; font-size:0.92rem; line-height:1.4;
+  }
+  .wr-list.nodate a{ grid-template-columns: 1fr; }
+  .wr-list a:hover{ color: var(--sys-warm) !important; }
+  .wr-list .when{ font-family:'IBM Plex Mono', monospace; font-size:0.7rem; color: var(--sys-ink-dim); }
+
+  .wr-all{ font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color: var(--sys-warm) !important; align-self:flex-start; }
+  .wr-all:hover{ color: var(--sys-cool) !important; }
+
+  .wr-more{ margin-top:1.75rem; font-family:'IBM Plex Mono', monospace; font-size:0.78rem; }
+  .wr-more a{ color: var(--sys-warm); }
+
+  @media (max-width:760px){
+    .wr-grid{ grid-template-columns: 1fr; }
+  }
+</style>
+
+{% comment %} The sections and their order come from _data/writing.yml {% endcomment %}
+
+<div class="wr">
+  <div class="wr-label">Writing</div>
+  <h1 class="wr-title">Everything I write, in one place</h1>
+  <p class="wr-sub">Long-form posts on production AI and greener software, write-ups of things I've built, and short notes from day-to-day engineering.</p>
+
+  <div class="wr-grid">
+    {% for s in site.data.writing %}
+      {% assign docs = site[s.collection] | where_exp: "d", "d.title" %}
+      {% if s.dated %}{% assign docs = docs | sort: "date" | reverse %}{% else %}{% assign docs = docs | reverse %}{% endif %}
+      <section class="wr-card">
+        <div class="wr-card__head">
+          <h2><a href="{{ s.url | relative_url }}">{{ s.title }}</a></h2>
+          <span class="wr-count">{{ docs.size }} {% if docs.size == 1 %}{{ s.noun }}{% else %}{{ s.noun }}s{% endif %}</span>
+        </div>
+        <p class="wr-card__desc">{{ s.description }}</p>
+        <ul class="wr-list{% unless s.dated %} nodate{% endunless %}">
+          {% for d in docs limit:3 %}
+            <li><a href="{{ d.url | relative_url }}">{% if s.dated %}<span class="when">{{ d.date | date: "%b %Y" }}</span>{% endif %}<span>{{ d.title }}</span></a></li>
+          {% endfor %}
+        </ul>
+        <a class="wr-all" href="{{ s.url | relative_url }}">All {{ s.title }} →</a>
+      </section>
+    {% endfor %}
+  </div>
+
+  {% if site.author.medium %}
+    <p class="wr-more">More of my writing is on <a href="{{ site.author.medium }}" target="_blank" rel="noopener">Medium ↗</a></p>
+  {% endif %}
+</div>

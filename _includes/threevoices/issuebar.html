@@ -1,4 +1,4 @@
-{% comment %} Expects `issue` (from _data/issues.yml) and page.kind ('cases' or 'how'). {% endcomment %}
+{% comment %} Expects `issue` (from _data/threevoices/issues.yml) and page.kind ('cases' or 'how'). {% endcomment %}
 {% assign issues = site.data.threevoices.issues %}
 {% for i in issues %}{% if i.slug == issue.slug %}{% assign idx = forloop.index0 %}{% endif %}{% endfor %}
 {% assign newer_idx = idx | minus: 1 %}
@@ -6,5 +6,11 @@
 {% if page.kind == 'how' %}{% assign kind_file = 'how-it-works.html' %}{% else %}{% assign kind_file = 'cases.html' %}{% endif %}
 <div class="issuebar">
   <span class="here">Issue <b>No. {{ issue.number }}</b> · {{ issue.month }} · {{ issue.title }}{% if idx == 0 %}<span class="pill">Latest</span>{% endif %}</span>
-
+  <nav aria-label="Issue">
+    <a href="cases.html"{% if page.kind == 'cases' %} aria-current="page"{% endif %}>Cases</a>
+    <a href="how-it-works.html"{% if page.kind == 'how' %} aria-current="page"{% endif %}>How it works</a>
+    {% if older_idx < issues.size %}{% assign older = issues[older_idx] %}<a href="../{{ older.slug }}/{{ kind_file }}">← Previous: {{ older.month }}</a>{% endif %}
+    {% if idx > 0 %}{% assign newer = issues[newer_idx] %}<a href="../{{ newer.slug }}/{{ kind_file }}">Newer: {{ newer.month }} →</a>{% endif %}
+    <a href="{{ '/threevoices/archive.html' | relative_url }}">All issues</a>
+  </nav>
 </div>

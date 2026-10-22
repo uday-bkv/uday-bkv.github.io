@@ -1,7 +1,7 @@
 /* Home page: hero, latest-release cards, outcome tiles, area cards, about-this-site columns. */
 header.hero { padding-block: 56px 36px; border-bottom: 1px solid var(--rule); display: grid; gap: 22px; }
 h1 em { font-style: normal; background: linear-gradient(transparent 62%, var(--mark) 62% 90%, transparent 90%); padding-inline: .05em; }
-.lede { max-width: 100ch; font-size: 1.2rem; margin: 0; color: var(--ink); }
+.lede { max-width: 62ch; font-size: 1.2rem; margin: 0; color: var(--ink); }
 .ledger { display: flex; flex-wrap: wrap; gap: 8px 18px; font-family: var(--mono); font-size: .82rem; color: var(--muted); }
 .ledger b { color: var(--ink); font-weight: 500; }
 .outcomes { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 1px solid var(--rule); }

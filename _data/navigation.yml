@@ -1,25 +1,20 @@
-# main links links
+# Top menu.
+#   url   - where the link goes (a full https:// address opens in a new tab)
+#   match - other pages that should highlight this link: page paths, or
+#           collection names (every post in that collection counts)
+
 main:
 
-  - title: "Thoughts"
-    url: /projects/
-
-  - title: "Notes"
-    url: /notes/
-
-  - title: "Green Software"
-    url: /greensoftware/
-
-  - title: "AI Engineering"
-    url: /aiengineering/
-
-  - title: "Learnings"
-    url: /learnings/
+  - title: "Writing"
+    url: /writing/
+    match: [/aiengineering/, /greensoftware/, /notes/, aiengineering, greensoftware, notes]
 
   - title: "Three Voices"
     url: /threevoices/
 
-  # SproutPath — remove the two # below and put in the real address.
-  # A full https:// address opens in a new tab; a /path/ stays on this site.
+  - title: "Thoughts"
+    url: /projects/
+
+  # SproutPath — remove the two # below and put in its real address.
   # - title: "SproutPath"
   #   url: https://example.com/sproutpath/

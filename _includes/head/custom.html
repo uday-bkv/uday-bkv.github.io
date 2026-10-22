@@ -100,6 +100,9 @@
     --global-code-text-color: #15120e;
   }
 
+  /* the theme paints <html> near-black; match it to the page so short pages
+     don't show a darker band above the footer */
+  html{ background-color: var(--sys-bg) !important; }
   body{
     background: var(--sys-bg) !important;
     color: var(--sys-ink) !important;
@@ -189,7 +192,7 @@
   :root[data-theme="light"] .sg-theme-toggle .sg-icon-sun{ display: none; }
   :root[data-theme="light"] .sg-theme-toggle .sg-icon-moon{ display: block; }
 
-  /* hamburger: hidden on desktop, shown below 900px where the links no longer fit */
+  /* hamburger: hidden on desktop, shown on phones and small tablets (768px and below) */
   .sg-menu-toggle{
     display: none; flex-shrink: 0; align-items: center; justify-content: center;
     width: 34px; height: 34px; padding: 0; margin: 0;
@@ -203,7 +206,7 @@
   .sg-menu-toggle[aria-expanded="true"] .sg-menu-bars{ display: none; }
   .sg-menu-toggle[aria-expanded="true"] .sg-menu-close{ display: inline; }
 
-  @media (max-width: 900px){
+  @media (max-width: 768px){
     .sg-masthead__wrap{ position: relative !important; }
     .sg-masthead__right{ position: static; }
     .sg-menu-toggle{ display: inline-flex; }

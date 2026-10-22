@@ -1,0 +1,29 @@
+# Sections shown on the Writing page (/writing/), in this order.
+# To add or reorder a section, edit this list.
+#   title       - section name
+#   url         - the section's own page
+#   collection  - which collection it lists (folder name without the _)
+#   noun        - what one entry is called (shown as "6 posts")
+#   dated       - true if entries have dates (newest shown first)
+#   description - one line under the title
+
+- title: "AI Engineering"
+  url: /aiengineering/
+  collection: aiengineering
+  noun: post
+  dated: true
+  description: "Building production AI systems — retrieval, agents, speech, and what it takes to ship them."
+
+- title: "Green Software"
+  url: /greensoftware/
+  collection: greensoftware
+  noun: post
+  dated: true
+  description: "Measuring and reducing the energy and carbon cost of the software I build."
+
+- title: "Notes"
+  url: /notes/
+  collection: notes
+  noun: note
+  dated: true
+  description: "Short observations from day-to-day engineering, smaller than a write-up."

@@ -8,10 +8,11 @@ sitemap: true
 <header class="page-head">
   <div class="eyebrow">Every issue</div>
   <h1>Archive</h1>
+  <p class="lede">{{ site.threevoices.title }} is compiled monthly. Each issue keeps its own cases and implementation traces, so you can return to any month. A new issue is added at the start of each month.</p>
 </header>
 <div class="archive">{% for issue in site.data.threevoices.issues %}{% assign cases = site.data.threevoices.cases[issue.slug] %}{% capture dir %}/threevoices/issues/{{ issue.slug }}/{% endcapture %}
   <article class="cover">
-    <!-- <div class="cover-top"><span class="no">{{ issue.number }}{% if forloop.first %} · Latest{% endif %}</span><span class="mo">{{ issue.month }}</span></div> -->
+    <div class="cover-top"><span class="no">Issue No. {{ issue.number }}{% if forloop.first %} · Latest{% endif %}</span><span class="mo">{{ issue.month }}</span></div>
     <div class="cover-body">
       <h2>{{ issue.title }}</h2>
       <p>{{ issue.summary }}</p>

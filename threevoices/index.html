@@ -23,7 +23,7 @@ sitemap: true
 
 <section class="release solo" aria-label="This month">
   <div class="rel-card latest">
-    <!-- <span class="rel-tag"><b>{{ latest.month }}</b>  {{ latest.number }}</span> -->
+    <span class="rel-tag"><b>{{ latest.month }}</b> Issue No. {{ latest.number }}</span>
     <h2>{{ latest.title }}</h2>
     <p>{{ latest.summary }}</p>
     <ol class="rel-list">{% for c in latest_cases %}{% assign cat = site.data.threevoices.categories | where: "key", c.category[0] | first %}<li><a href="{{ latest_dir | append: 'cases.html#' | append: c.id | relative_url }}"><span>{{ c.headline }} <em class="newpill">{{ cat.label }}</em></span></a></li>{% endfor %}</ol>

@@ -11,7 +11,10 @@
             {% if link.url contains 'http' %}
               <li class="sg-nav__ext"><a href="{{ link.url }}" target="_blank" rel="noopener">{{ link.title }}<span class="sg-nav__arrow" aria-hidden="true">↗</span></a></li>
             {% else %}
-              <li><a href="{{ base_path }}{{ link.url }}"{% if page.url == link.url %} aria-current="page"{% endif %}>{{ link.title }}</a></li>
+              {% assign is_current = false %}
+              {% if page.url == link.url %}{% assign is_current = true %}{% endif %}
+              {% if link.match contains page.url or link.match contains page.collection %}{% assign is_current = true %}{% endif %}
+              <li><a href="{{ base_path }}{{ link.url }}"{% if is_current %} aria-current="page"{% endif %}>{{ link.title }}</a></li>
             {% endif %}
           {% endfor %}
         </ul>
@@ -48,7 +51,7 @@
   btn.addEventListener('click', function(e){ e.stopPropagation(); set(!nav.classList.contains('is-open')); });
   document.addEventListener('click', function(e){ if(!nav.contains(e.target)) set(false); });
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape') set(false); });
-  window.addEventListener('resize', function(){ if(window.innerWidth > 900) set(false); });
+  window.addEventListener('resize', function(){ if(window.innerWidth > 768) set(false); });
 })();
 
 (function(){

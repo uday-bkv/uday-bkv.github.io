@@ -5,6 +5,7 @@ layout: tv-default
 {% assign cases = site.data.threevoices.cases[page.issue] %}
 {% include threevoices/issuebar.html %}
 <header class="page-head">
+  <div class="eyebrow">Issue No. {{ issue.number }} · {{ issue.month }} · Implementation traces</div>
   <h1>How it works</h1>
   <p class="lede">Pick a scenario from the list. Its panel shows how the AI was put to work step by step, who checked it, and which real tools you could use to build something similar.</p>
   <div class="legend"><span>Who acts at each step:</span><span class="role r-person">Person</span><span class="role r-ai">AI</span><span class="role r-expert">Expert</span><span class="role r-outcome">Outcome</span></div>
