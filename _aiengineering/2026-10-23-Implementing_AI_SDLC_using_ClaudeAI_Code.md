@@ -1,4 +1,4 @@
----
+<!-- ---
 title: "Building a Production ready application, using Claude Code, following AI SDLC"
 collection: aiengineering
 permalink: /aiengineering/s_rag
@@ -293,4 +293,4 @@ src/
 ---
 
 References are available at: 
-- [GitHub Repo ](https://github.com/uday-bkv/production-ready-rag-solution)
+- [GitHub Repo ](https://github.com/uday-bkv/production-ready-rag-solution) -->
