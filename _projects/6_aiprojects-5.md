@@ -1,6 +1,6 @@
 ---
 title: "Automatic Speech Recognition — Capstone Project"
-excerpt: "An end-to-end ASR system that accurately transcribes spoken language into text across diverse domains and accents, built with Kaldi, Vosk, FastAPI, and deployed on Azure AKS.<br/><a href='https://github.com/uday-bkv/asr-capstone-project'>repo link..</a>"
+excerpt: "An end-to-end ASR system that accurately transcribes spoken language into text across diverse domains and accents, built with Kaldi, Vosk, FastAPI, and deployed on Azure AKS.<br/><a href='https://github.com/uday-bkv/Automated-Speech-Recognition'>repo link..</a>"
 collection: projects
 header:
   teaser: "/images/projects/asr_cap.png"
@@ -75,7 +75,7 @@ streamlit run app.py
 
 ## Repository
 
-[github.com/uday-bkv/asr-capstone-project](https://github.com/uday-bkv/asr-capstone-project)
+[github.com/uday-bkv/asr-capstone-project](https://github.com/uday-bkv/Automated-Speech-Recognition)
 
 
 [Presentation](../../Documents/ASR-Presentation.pdf)
