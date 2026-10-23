@@ -31,41 +31,48 @@ author_profile: false
   }
   .wr-sub{ max-width: 60ch; font-size:1rem; margin:0 0 2rem; }
 
-  .wr-grid{
-    display:grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem;
-    padding-top: 1.75rem; border-top: 1px solid var(--sys-line);
+  /* tabs: one per section in _data/writing.yml */
+  .wr-tabs{
+    display:flex; gap:0.25rem; flex-wrap:wrap;
+    border-bottom: 1px solid var(--sys-line); margin-bottom: 1.5rem;
   }
-
-  .wr-card{
-    display:flex; flex-direction:column;
-    border:1px solid var(--sys-line); border-radius:14px; background: var(--sys-panel);
-    padding: 1.4rem 1.4rem 1.2rem;
+  .wr-tab{
+    appearance:none; background:none; border:0; cursor:pointer;
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:1rem;
+    color: var(--sys-ink-dim); padding:0.7rem 1rem; margin-bottom:-1px;
+    border-bottom: 2px solid transparent; display:flex; align-items:baseline; gap:0.5rem;
   }
-  .wr-card__head{ display:flex; align-items:baseline; justify-content:space-between; gap:1rem; margin-bottom:0.35rem; }
-  .wr-card h2{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:1.25rem; margin:0; }
-  .wr-card h2 a{ color: var(--sys-ink) !important; }
-  .wr-card h2 a:hover{ color: var(--sys-warm) !important; }
-  .wr-count{ font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color: var(--sys-ink-dim); white-space:nowrap; }
-  .wr-card__desc{ font-size:0.9rem; margin:0 0 1rem; }
+  .wr-tab:hover{ color: var(--sys-ink); }
+  .wr-tab[aria-selected="true"]{ color: var(--sys-ink); border-bottom-color: var(--sys-warm); }
+  .wr-tab:focus-visible{ outline: 2px solid var(--sys-warm); outline-offset: 2px; border-radius: 4px; }
+  .wr-count{ font-family:'IBM Plex Mono', monospace; font-size:0.7rem; font-weight:400; color: var(--sys-ink-dim); }
 
-  .wr-list{ list-style:none; margin:0 0 1rem; padding:0; flex:1; }
+  .wr-panel[hidden]{ display:none; }
+  .wr-panel__desc{ font-size:0.95rem; margin:0 0 1rem; max-width:60ch; }
+
+  .wr-list{ list-style:none; margin:0 0 1.25rem; padding:0; }
   .wr-list li{ margin:0; border-top:1px solid var(--sys-line); }
+  .wr-list li:last-child{ border-bottom:1px solid var(--sys-line); }
   .wr-list a{
-    display:grid; grid-template-columns: 4.6rem 1fr; gap:0.75rem; align-items:baseline;
-    padding:0.6rem 0; color: var(--sys-ink) !important; font-size:0.92rem; line-height:1.4;
+    display:grid; grid-template-columns: 5.2rem 1fr; gap:1rem; align-items:baseline;
+    padding:0.9rem 0; color: var(--sys-ink) !important;
   }
   .wr-list.nodate a{ grid-template-columns: 1fr; }
-  .wr-list a:hover{ color: var(--sys-warm) !important; }
-  .wr-list .when{ font-family:'IBM Plex Mono', monospace; font-size:0.7rem; color: var(--sys-ink-dim); }
+  .wr-list .name{ display:block; font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:1.02rem; line-height:1.4; }
+  .wr-list .desc{ display:block; font-size:0.88rem; color: var(--sys-ink-muted); margin-top:0.25rem; max-width:62ch; }
+  .wr-list a:hover .name{ color: var(--sys-warm); }
+  .wr-list .when{ font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color: var(--sys-ink-dim); }
+  .wr-empty{ font-family:'IBM Plex Mono', monospace; font-size:0.85rem; color: var(--sys-ink-dim); padding:1.5rem 0; }
 
-  .wr-all{ font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color: var(--sys-warm) !important; align-self:flex-start; }
+  .wr-all{ font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color: var(--sys-warm) !important; }
   .wr-all:hover{ color: var(--sys-cool) !important; }
 
   .wr-more{ margin-top:1.75rem; font-family:'IBM Plex Mono', monospace; font-size:0.78rem; }
   .wr-more a{ color: var(--sys-warm); }
 
-  @media (max-width:760px){
-    .wr-grid{ grid-template-columns: 1fr; }
+  @media (max-width:600px){
+    .wr-tab{ padding:0.6rem 0.65rem; font-size:0.92rem; }
+    .wr-list a{ grid-template-columns: 1fr; gap:0.2rem; }
   }
 </style>
 
@@ -76,27 +83,70 @@ author_profile: false
   <h1 class="wr-title">Everything I write, in one place</h1>
   <p class="wr-sub">Long-form posts on production AI and greener software, write-ups of things I've built, and short notes from day-to-day engineering.</p>
 
-  <div class="wr-grid">
+  <div class="wr-tabs" role="tablist" aria-label="Writing sections">
     {% for s in site.data.writing %}
       {% assign docs = site[s.collection] | where_exp: "d", "d.title" %}
-      {% if s.dated %}{% assign docs = docs | sort: "date" | reverse %}{% else %}{% assign docs = docs | reverse %}{% endif %}
-      <section class="wr-card">
-        <div class="wr-card__head">
-          <h2><a href="{{ s.url | relative_url }}">{{ s.title }}</a></h2>
-          <span class="wr-count">{{ docs.size }} {% if docs.size == 1 %}{{ s.noun }}{% else %}{{ s.noun }}s{% endif %}</span>
-        </div>
-        <p class="wr-card__desc">{{ s.description }}</p>
-        <ul class="wr-list{% unless s.dated %} nodate{% endunless %}">
-          {% for d in docs limit:3 %}
-            <li><a href="{{ d.url | relative_url }}">{% if s.dated %}<span class="when">{{ d.date | date: "%b %Y" }}</span>{% endif %}<span>{{ d.title }}</span></a></li>
-          {% endfor %}
-        </ul>
-        <a class="wr-all" href="{{ s.url | relative_url }}">All {{ s.title }} →</a>
-      </section>
+      <button class="wr-tab" role="tab" id="tab-{{ s.collection }}" aria-controls="panel-{{ s.collection }}"
+              aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"{% unless forloop.first %} tabindex="-1"{% endunless %}>
+        {{ s.title }} <span class="wr-count">{{ docs.size }}</span>
+      </button>
     {% endfor %}
   </div>
+
+  {% for s in site.data.writing %}
+    {% assign docs = site[s.collection] | where_exp: "d", "d.title" %}
+    {% if s.dated %}{% assign docs = docs | sort: "date" | reverse %}{% else %}{% assign docs = docs | reverse %}{% endif %}
+    <section class="wr-panel" role="tabpanel" id="panel-{{ s.collection }}" aria-labelledby="tab-{{ s.collection }}"{% unless forloop.first %} hidden{% endunless %}>
+      <p class="wr-panel__desc">{{ s.description }}</p>
+      {% if docs.size > 0 %}
+        <ul class="wr-list{% unless s.dated %} nodate{% endunless %}">
+          {% for d in docs %}
+            <li><a href="{{ d.url | relative_url }}">
+              {% if s.dated %}<span class="when">{{ d.date | date: "%b %Y" }}</span>{% endif %}
+              <span>
+                <span class="name">{{ d.title }}</span>
+                {% if d.excerpt %}<span class="desc">{{ d.excerpt | strip_html | truncate: 150 }}</span>{% endif %}
+              </span>
+            </a></li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <div class="wr-empty">Nothing here yet — check back soon.</div>
+      {% endif %}
+      <a class="wr-all" href="{{ s.url | relative_url }}">Open {{ s.title }} page →</a>
+    </section>
+  {% endfor %}
 
   {% if site.author.medium %}
     <p class="wr-more">More of my writing is on <a href="{{ site.author.medium }}" target="_blank" rel="noopener">Medium ↗</a></p>
   {% endif %}
 </div>
+
+<script>
+  /* Tabs: click or arrow keys switch sections; the URL hash (#notes etc.) keeps the choice linkable. */
+  (function(){
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('.wr-tab'));
+    if (!tabs.length) return;
+    function select(tab, focus){
+      tabs.forEach(function(t){
+        var on = t === tab;
+        t.setAttribute('aria-selected', on ? 'true' : 'false');
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      });
+      if (focus) tab.focus();
+    }
+    tabs.forEach(function(t, i){
+      t.addEventListener('click', function(){
+        select(t);
+        history.replaceState(null, '', '#' + t.id.replace('tab-', ''));
+      });
+      t.addEventListener('keydown', function(e){
+        var n = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (n) { e.preventDefault(); tabs[(i + n + tabs.length) % tabs.length].click(); tabs[(i + n + tabs.length) % tabs.length].focus(); }
+      });
+    });
+    var fromHash = document.getElementById('tab-' + location.hash.slice(1));
+    if (fromHash) select(fromHash);
+  })();
+</script>
