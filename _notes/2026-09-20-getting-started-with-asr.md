@@ -1,7 +1,7 @@
 ---
 title: "Getting Started with Speech Recognition and Voice AI"
 collection: notes
-date: 2026-07-14
+date: 2026-10-23
 color: cool
 tags:
   - ASR

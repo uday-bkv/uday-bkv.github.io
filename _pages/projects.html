@@ -34,7 +34,7 @@ author_profile: false
   .th-title em{ font-style:normal; color: var(--sys-warm); }
   .th-sub{ max-width: 58ch; font-size:1rem; margin:0 0 1.75rem; }
 
-  /* topic chips — built by the script from tags used more than once */
+  /* topic chips */
   .th-chips{
     display:none; flex-wrap:wrap; gap:0.45rem; align-items:center;
     padding-top:1.4rem; border-top:1px solid var(--sys-line); margin-bottom:0.9rem;
@@ -205,23 +205,33 @@ author_profile: false
 
   function norm(t){ return (t || '').trim().toLowerCase(); }
 
-  // Topics are case-insensitive ("python" = "Python"); only ones shared by
-  // two or more entries become chips, so the bar stays short.
-  var topics = {};
+  var filters = [
+    {
+      key: 'ai',
+      label: 'AI',
+      matches: ['agentic ai', 'spring ai', 'openai', 'speech recognition',
+        'audio generation', 'supervised-learning', 'facial-recognition', 'image-recognition']
+    },
+    {
+      key: 'ai-tools',
+      label: 'AI tools',
+      matches: ['spring ai', 'openai', 'huggingface', 'langchain', 'langgraph',
+        'kaldi', 'vosk', 'fastapi', 'streamlit']
+    },
+    { key: 'python', label: 'Python', matches: ['python'] }
+  ];
+
   entries.forEach(function(e){
     e._keys = (e.getAttribute('data-tags') || '').split('|').map(norm).filter(Boolean);
-    var seen = {};
-    (e.getAttribute('data-tags') || '').split('|').forEach(function(t){
-      var k = norm(t);
-      if(!k || seen[k]) return; seen[k] = true;
-      if(!topics[k]) topics[k] = { label: t.trim(), n: 0 };
-      topics[k].n++;
-    });
   });
-  var keys = Object.keys(topics)
-    .filter(function(k){ return topics[k].n > 1; })
-    .sort(function(a, b){ return topics[b].n - topics[a].n || topics[a].label.localeCompare(topics[b].label); });
-  if(!keys.length) return;
+
+  filters.forEach(function(filter){
+    filter.n = entries.filter(function(entry){
+      return entry._keys.some(function(tag){
+        return filter.matches.some(function(match){ return tag === match || tag.indexOf(match) !== -1; });
+      });
+    }).length;
+  });
 
   function chip(key, label, n){
     var b = document.createElement('button');
@@ -232,12 +242,15 @@ author_profile: false
     bar.appendChild(b);
   }
   chip('all', 'All', total);
-  keys.forEach(function(k){ chip(k, topics[k].label, topics[k].n); });
+  filters.forEach(function(filter){ chip(filter.key, filter.label, filter.n); });
 
   function apply(key){
+    var filter = filters.find(function(item){ return item.key === key; });
     var shown = 0, rows = 0;
     entries.forEach(function(e){
-      var ok = key === 'all' || e._keys.indexOf(key) !== -1;
+      var ok = key === 'all' || (filter && e._keys.some(function(tag){
+        return filter.matches.some(function(match){ return tag === match || tag.indexOf(match) !== -1; });
+      }));
       e.hidden = !ok;
       if(ok){ shown++; if(e.tagName === 'LI') rows++; }
     });
@@ -247,7 +260,7 @@ author_profile: false
     });
     count.textContent = key === 'all'
       ? total + ' write-up' + (total === 1 ? '' : 's')
-      : shown + ' of ' + total + ' · ' + topics[key].label;
+      : shown + ' of ' + total + ' · ' + filter.label;
     none.hidden = shown !== 0;
 
     // keep the topic in the URL so a filtered view can be shared
@@ -263,7 +276,7 @@ author_profile: false
   var start = 'all';
   try {
     var q = norm(new URL(window.location.href).searchParams.get('topic'));
-    if(q && topics[q] && topics[q].n > 1) start = q;
+    if(filters.some(function(filter){ return filter.key === q; })) start = q;
   } catch(e) {}
 
   bar.classList.add('ready');
