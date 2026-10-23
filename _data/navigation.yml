@@ -1,4 +1,5 @@
 # Top menu.
+#   icon  - small icon before the title: pen, voices or bulb (see _includes/nav-icon.html)
 #   url   - where the link goes (a full https:// address opens in a new tab)
 #   match - other pages that should highlight this link: page paths, or
 #           collection names (every post in that collection counts)
@@ -6,13 +7,16 @@
 main:
 
   - title: "Writing"
+    icon: pen
     url: /writing/
     match: [/aiengineering/, /greensoftware/, /notes/, aiengineering, greensoftware, notes]
 
   - title: "Three Voices"
+    icon: voices
     url: /threevoices/
 
   - title: "Thoughts"
+    icon: bulb
     url: /projects/
 
   # SproutPath — remove the two # below and put in its real address.
