@@ -288,7 +288,7 @@ src/
 ---
 
 References are available at: 
-- [GitHub Repo ](https://github.com/uday160386/production-ready-rag-solution)
+- [GitHub Repo ](https://github.com/uday-bkv/production-ready-rag-solution)
 
 ---
 

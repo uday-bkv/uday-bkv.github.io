@@ -45,7 +45,7 @@ Pre-requisites
 - access to the internet
 
 ### First, we will create a Spring application for loan management and store it in AWS Elastic Container Registry (ECR). 
-  - Clone the repo from https://github.com/uday160386/app-greenit-metrics.git
+  - Clone the repo from https://github.com/uday-bkv/app-greenit-metrics.git
   - Build the application using the command below and run locally
 
   ```
@@ -62,7 +62,7 @@ aws ecr get-login-password --region <region> | docker login --username AWS --pas
 Replace: <aws_account_id> with your 12-digit AWS Account
 ``` 
   - Build and Tag docker image and Push it to ECR 
-  Note: sample docker file is available at https://github.com/uday160386/app-greenit-metrics/blob/main/Dockerfile
+  Note: sample docker file is available at https://github.com/uday-bkv/app-greenit-metrics/blob/main/Dockerfile
 ```
 docker build -t <app name> .
 docker tag <app name>:latest <aws_account_id>.dkr.ecr.<region>.amazonaws.com/<app name>:latest
@@ -86,7 +86,7 @@ To deploy the loans application to EKS, we need to define
 - service.yaml
 - configmap.yaml
   
-Note: example files are available in the repo https://github.com/uday160386/app-greenit-metrics
+Note: example files are available in the repo https://github.com/uday-bkv/app-greenit-metrics
 
 Run the commands below to deploy workloads in EKS from the local environment:
 
@@ -132,10 +132,10 @@ What is [Kepler]?
   Run the below yaml file within cluster. This will deploy Kepler as a DaemonSet in your cluster, and it will start collecting resource and energy metrics.
   ```
     kubectl apply -f kepler-daemonset.yaml
-    https://github.com/uday160386/app-greenit-metrics/blob/main/kepler-daemonset.yaml
+    https://github.com/uday-bkv/app-greenit-metrics/blob/main/kepler-daemonset.yaml
 
     kubectl apply -f kepler-service.yaml
-    https://github.com/uday160386/app-greenit-metrics/blob/main/kepler-service.yaml
+    https://github.com/uday-bkv/app-greenit-metrics/blob/main/kepler-service.yaml
   ```
   Run the below commands to get the external url to access the Kepler. Kepler service is available at port 9100
 ```
@@ -163,7 +163,7 @@ Make sure Prometheus/Grafana is running locally or in any cloud. If not, try run
       tar xvf prometheus-2.54.1.linux-amd64.tar.gz
       cd prometheus-2.54.1.linux-amd64```
 
-  - Download prometheus.yml from https://github.com/uday160386/app-greenit-metrics/blob/main/src/main/resources/prometheus.yml
+  - Download prometheus.yml from https://github.com/uday-bkv/app-greenit-metrics/blob/main/src/main/resources/prometheus.yml
 
       This file contians configuration for application logs and kepler logs as well and replace the public endpoint
       (or)
@@ -297,5 +297,5 @@ With this in place you’ll see live power (W), energy (kWh), total CO2e (g), an
 
 Source is available at : [app-greenit-metrics]
 
-[app-greenit-metrics]: https://github.com/uday160386/app-greenit-metrics
+[app-greenit-metrics]: https://github.com/uday-bkv/app-greenit-metrics
 [Kepler]: https://sustainable-computing.io/

@@ -33,7 +33,7 @@ Example Code:
 
 prerequisite:
 - Python 3.x.x installed
-- a good quality audio file to test. [Example audio file](https://github.com/uday160386/asr_vosk_utility/blob/main/61-70968-0000.wav)
+- a good quality audio file to test. [Example audio file](https://github.com/uday-bkv/asr_vosk_utility/blob/main/61-70968-0000.wav)
 
 ```
 
@@ -75,7 +75,7 @@ How to run?
 ```
 
 References are available at: 
-- [GitHub Repo ](https://github.com/uday160386/asr_vosk_utility)
+- [GitHub Repo ](https://github.com/uday-bkv/asr_vosk_utility)
 - [vosk api web page](https://alphacephei.com/vosk/)
 - [ vosk official git repo](https://github.com/alphacep/vosk-api)
 - [vosk api examples](https://github.com/alphacep/vosk-api/tree/master/python/example)

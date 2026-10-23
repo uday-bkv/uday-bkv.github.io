@@ -730,4 +730,4 @@ While I mentioned the MCP server, implementing these strategies will greatly enh
 
 Prioritising sustainable practices ensures that your AI initiatives are effective and ethically responsible, contributing to operational excellence and environmental stewardship.
     
-Source is available at : https://github.com/uday160386/Green-MCP
+Source is available at : https://github.com/uday-bkv/Green-MCP

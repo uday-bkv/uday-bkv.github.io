@@ -36,7 +36,7 @@ Note:Azure provides machine learning services through Azure ML Designer, which i
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/uday160386/ml-model-as-rest-api
+   git clone https://github.com/uday-bkv/ml-model-as-rest-api
    cd ml-model-deployment
    ```
 
@@ -182,7 +182,7 @@ docker run -p 8000:8000 venmaum/ml-simple-app
 - [Scikit-learn Decision Trees](https://scikit-learn.org/stable/modules/tree.html)
 - [FastAPI Documentation](https://fastapi.tiangolo.com/)
 - [Azure Functions Python Guide](https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference-python)
-- [Source Code](https://github.com/uday160386/ml-model-as-rest-api)
+- [Source Code](https://github.com/uday-bkv/ml-model-as-rest-api)
 
 ## 🏷️ Tags
 

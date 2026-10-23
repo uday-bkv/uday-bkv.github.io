@@ -1,6 +1,6 @@
 ---
 title: "StoP - AI-Powered SDLC Workflow with LangGraph"
-excerpt: "A sophisticated AI-powered workflow system that automatically generates user stories, production-ready code, containerization code, and comprehensive unit tests from Swagger/OpenAPI specifications using LangGraph and multiple AI agents. Includes real-time workflow visualization and multi-cloud support.<br/><a href='https://github.com/uday160386/ai_powered_sdlc_code'>repo link..</a>"
+excerpt: "A sophisticated AI-powered workflow system that automatically generates user stories, production-ready code, containerization code, and comprehensive unit tests from Swagger/OpenAPI specifications using LangGraph and multiple AI agents. Includes real-time workflow visualization and multi-cloud support.<br/><a href='https://github.com/uday-bkv/ai_powered_sdlc_code'>repo link..</a>"
 collection: projects
 tags:
   - Python
@@ -100,5 +100,5 @@ The app displays a real-time Mermaid diagram of the workflow, showing:
 
 ## Repository
 
-[github.com/uday160386/asr-capstone-project](https://github.com/uday160386/ai_powered_sdlc_code)
+[github.com/uday-bkv/asr-capstone-project](https://github.com/uday-bkv/ai_powered_sdlc_code)
 

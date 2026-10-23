@@ -55,4 +55,4 @@ curl --location 'http://localhost:9190/movies/ai/chat?aboutMovie=lordofthering'
 
 ## Repository
 
-[github.com/uday160386/chat_app_spring-ai_azure_ai](https://github.com/uday160386/chat_app_spring-ai_azure_ai)
+[github.com/uday-bkv/chat_app_spring-ai_azure_ai](https://github.com/uday-bkv/chat_app_spring-ai_azure_ai)

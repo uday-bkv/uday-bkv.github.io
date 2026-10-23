@@ -32,7 +32,7 @@ var lastname = data.name.lastName();
 data.fake("{{name.lastName}}, {{name.firstName}} {{name.suffix}}"));
 // outputs: "Uday, Kumar Mr."
 Faker have a pre-defined format of test data to supports different categories as below:
-![image](https://github.com/uday160386/faker/assets/31610853/ae206e7d-f016-4d31-934c-1e5cbce16aa1)
+![image](https://github.com/uday-bkv/faker/assets/31610853/ae206e7d-f016-4d31-934c-1e5cbce16aa1)
 ```
 
 ### Step#2:

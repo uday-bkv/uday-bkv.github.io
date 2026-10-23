@@ -78,4 +78,4 @@ Security Operations (SecOps) bridges the gap between software development and se
 
 By layering these open source tools across the build, deploy, and runtime phases, you create a defense-in-depth SecOps posture for your Spring Boot application — catching vulnerabilities early, preventing misconfigurations, and maintaining visibility into security events in production.
 
-**Repository:** [uday160386/cn-secops-spring-boot](https://github.com/uday160386/cn-secops-spring-boot)
+**Repository:** [uday-bkv/cn-secops-spring-boot](https://github.com/uday-bkv/cn-secops-spring-boot)

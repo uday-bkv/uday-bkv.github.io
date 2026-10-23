@@ -1,6 +1,6 @@
 ---
 title: "Photo Sorter"
-excerpt: "Utilities to sort photos by facial recognition, remove duplicates and identify the quality of photos.<br/><a href='https://github.com/uday160386/photo-sorter'>repo link..</a>"
+excerpt: "Utilities to sort photos by facial recognition, remove duplicates and identify the quality of photos.<br/><a href='https://github.com/uday-bkv/photo-sorter'>repo link..</a>"
 collection: projects
 header:
   teaser: "/images/projects/photo-sorter-ui.png"
@@ -23,4 +23,4 @@ tags:
 
 ![App screenshot](/images/projects/photo-sorter-ui.png)
 
-Repo: [github.com/uday160386/chat_app_spring-ai_azure_ai](https://github.com/uday160386/chat_app_spring-ai_azure_ai)
+Repo: [github.com/uday-bkv/chat_app_spring-ai_azure_ai](https://github.com/uday-bkv/chat_app_spring-ai_azure_ai)

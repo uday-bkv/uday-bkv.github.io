@@ -12,7 +12,7 @@ title                    : "Uday BKV"
 title_separator          : "-"
 name                     : &name "(Uday)"
 description              : &description "Engineering Lead based in Singapore — passionate about technology and its responsible use, adept at creative problem-solving, a continuous learner, dreamer and achiever."
-url                      : https://uday160386.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://uday-bkv.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "academicpages/academicpages.github.io"
 
@@ -35,7 +35,7 @@ author:
   researchgate     : # URL
 
   # Repositories and software development
-  github           : "uday160386"
+  github           : "uday-bkv"
   
 
   # Social media
