@@ -9,21 +9,10 @@
 <link rel="icon" type="image/png" href="{{ base_path }}/images/favicon-192x192.png" sizes="192x192"/>
 <link rel="manifest" href="{{ base_path }}/images/manifest.json"/>
 <link rel="icon" href="/images/favicon.ico"/>
-<meta name="theme-color" content="#14110d"/>
-<!-- Black / white background: pick the theme before first paint so there's no flash.
-     Order: the visitor's saved choice → their OS setting → black. -->
+<meta name="theme-color" content="#ffffff"/>
 <script>
   (function(){
-    var root = document.documentElement;
-    window.sgSetTheme = function(t){
-      root.setAttribute('data-theme', t);
-      var m = document.querySelector('meta[name="theme-color"]');
-      if(m) m.setAttribute('content', t === 'light' ? '#ffffff' : '#14110d');
-    };
-    var saved = null;
-    try { saved = localStorage.getItem('sg-theme'); } catch(e) {}
-    var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-    root.setAttribute('data-theme', saved || (prefersLight ? 'light' : 'dark'));
+    document.documentElement.setAttribute('data-theme', 'light');
   })();
 </script>
 
@@ -45,8 +34,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   /* ---------- theme tokens ----------
-     Every page (home, thoughts, notes, writing lists, posts) reads these,
-     so the black/white switch only has to change them here. */
+     Every page (home, thoughts, notes, writing lists, posts) reads these. */
   :root{
     color-scheme: dark;
     --sys-bg: #14110d;
@@ -63,6 +51,10 @@
     --sys-cool: #4fc3b0;
     --sys-cool-soft: rgba(79,195,176,0.12);
     --sys-cool-line: rgba(79,195,176,0.28);
+    --nav-writing: #111;
+    --nav-voices: #111;
+    --nav-bulb: #111;
+    --nav-sprout: #111;
     --sys-shadow: 0 16px 28px -14px rgba(0,0,0,0.55);
   }
   :root[data-theme="light"]{
@@ -81,6 +73,10 @@
     --sys-cool: #0b7667;
     --sys-cool-soft: rgba(11,118,103,0.08);
     --sys-cool-line: rgba(11,118,103,0.30);
+    --nav-writing: #111;
+    --nav-voices: #111;
+    --nav-bulb: #111;
+    --nav-sprout: #111;
     --sys-shadow: 0 14px 26px -16px rgba(20,17,13,0.25);
 
     /* stock AcademicPages variables used by posts, sidebar, tables, code */
@@ -118,7 +114,7 @@
 
   /* masthead / nav — matches the "uday.bkv" mark from the home page */
   .sg-masthead{
-    background: var(--sys-panel) !important;
+    background: #fff !important;
     border-bottom: 1px solid var(--sys-line) !important;
   }
   .sg-masthead__wrap{
@@ -178,24 +174,19 @@
   .sg-nav a:hover .sg-nav__icon, .sg-nav a[aria-current="page"] .sg-nav__icon{ opacity: 1; color: var(--sys-warm); }
   .sg-nav a:hover, .sg-nav a[aria-current="page"]{ color: var(--sys-ink) !important; }
   .sg-nav a[aria-current="page"]{ box-shadow: inset 0 -1px 0 var(--sys-warm); }
+  .sg-nav__pen{ --nav-accent: var(--nav-writing); }
+  .sg-nav__voices{ --nav-accent: var(--nav-voices); }
+  .sg-nav__bulb{ --nav-accent: var(--nav-bulb); }
+  .sg-nav__sprout{ --nav-accent: var(--nav-sprout); }
+  .sg-nav li[class*="sg-nav__"] a,
+  .sg-nav li[class*="sg-nav__"] a:hover,
+  .sg-nav li[class*="sg-nav__"] a[aria-current="page"]{ color: var(--nav-accent) !important; }
+  .sg-nav li[class*="sg-nav__"] a:hover{ text-decoration: underline !important; text-decoration-color: #111; text-underline-offset: 0.25em; }
+  .sg-nav li[class*="sg-nav__"] .sg-nav__icon{ color: var(--nav-accent); opacity: 1; }
+  .sg-nav li[class*="sg-nav__"] a[aria-current="page"]{ box-shadow: inset 0 -1px 0 var(--nav-accent); }
   .sg-nav__ext a{ color: var(--sys-warm) !important; }
   .sg-nav__ext a:hover{ color: var(--sys-cool) !important; }
   .sg-nav__arrow{ font-size: 0.7em; margin-left: 0.2em; opacity: 0.8; }
-
-  .sg-theme-toggle{
-    flex-shrink: 0;
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 34px; height: 34px; padding: 0; margin: 0;
-    border-radius: 9px; border: 1px solid var(--sys-line-strong);
-    background: transparent; color: var(--sys-ink-muted); cursor: pointer;
-    transition: color .15s, border-color .15s, background .15s;
-  }
-  .sg-theme-toggle:hover{ color: var(--sys-warm); border-color: var(--sys-warm); background: var(--sys-warm-soft); }
-  .sg-theme-toggle:focus-visible{ outline: 2px solid var(--sys-warm); outline-offset: 2px; }
-  .sg-theme-toggle svg{ width: 16px; height: 16px; }
-  .sg-theme-toggle .sg-icon-moon{ display: none; }
-  :root[data-theme="light"] .sg-theme-toggle .sg-icon-sun{ display: none; }
-  :root[data-theme="light"] .sg-theme-toggle .sg-icon-moon{ display: block; }
 
   /* hamburger: hidden on desktop, shown on phones and small tablets (768px and below) */
   .sg-menu-toggle{
@@ -226,13 +217,14 @@
     .sg-nav li:first-child{ border-top: none; }
     .sg-nav a{ display: flex; gap: 0.65rem; padding: 0.9rem 1.25rem; font-size: 0.88rem !important; }
     .sg-nav a[aria-current="page"]{ box-shadow: inset 2px 0 0 var(--sys-warm); color: var(--sys-ink) !important; }
+    .sg-nav li[class*="sg-nav__"] a[aria-current="page"]{ box-shadow: inset 2px 0 0 var(--nav-accent); }
   }
 
   @media (max-width: 600px){
     .sg-masthead__wrap{ padding: 0 1rem !important; gap: 0.75rem; }
     .sg-masthead__right{ gap: 0.75rem; }
     .sg-mark{ font-size: 0.95rem !important; }
-    .sg-theme-toggle, .sg-menu-toggle{ width: 32px; height: 32px; }
+    .sg-menu-toggle{ width: 32px; height: 32px; }
   }
 
   /* blurred photo backdrop for the home, writing, and thoughts pages */
@@ -249,7 +241,7 @@
     background:
       linear-gradient(rgba(20,17,13,0.74), rgba(20,17,13,0.82)),
       url('{{ "/images/aboutme/DSC09787.JPG" | relative_url }}') 72% 60px / cover no-repeat;
-    filter:blur(1.8px);
+    filter:blur(2.5px);
   }
   :root[data-theme="light"] body:has(.home, .wr, .th)::before{
     background-image:

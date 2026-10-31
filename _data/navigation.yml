@@ -1,5 +1,5 @@
 # Top menu.
-#   icon  - small icon before the title: pen, voices or bulb (see _includes/nav-icon.html)
+#   icon  - small icon before the title: pen, voices, bulb or sprout (see _includes/nav-icon.html)
 #   url   - where the link goes (a full https:// address opens in a new tab)
 #   match - other pages that should highlight this link: page paths, or
 #           collection names (every post in that collection counts)
@@ -15,10 +15,11 @@ main:
     icon: voices
     url: /threevoices/
 
-  - title: "Thoughts"
-    icon: bulb
+  - title: "Ideas"
+    icon: bulb  
     url: /projects/
-
+  
   # SproutPath — remove the two # below and put in its real address.
-  # - title: "SproutPath"
+  - title: "SproutZ"
+    icon: sprout
   #   url: https://example.com/sproutpath/

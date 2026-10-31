@@ -68,9 +68,9 @@ redirect_from:
   }
   .sg-role{
     font-family:'Space Grotesk', sans-serif; font-size:1.08rem; font-weight:500;
-    color: var(--sg-warm); margin:0 0 1.2rem;
+    color: #000; margin:0 0 1.2rem;
   }
-  .sg-role .sep{ color: var(--sg-ink-dim); margin:0 0.5rem; }
+  .sg-role .sep{ color:inherit; margin:0 0.5rem; }
   .sg-intro{ max-width:56ch; font-size:1.01rem; margin:0 0 1.75rem; }
   .sg-intro strong{ color: var(--sg-ink); font-weight:600; }
 
@@ -129,7 +129,8 @@ redirect_from:
   }
   .sg-edu-item:first-child{ border-top:none; }
   .sg-edu-item .what{ color: var(--sg-ink); font-weight:500; max-width:38ch; }
-  .sg-edu-item .where{ color: var(--sg-ink-dim); font-family:'IBM Plex Mono', monospace; font-size:0.78rem; text-align:right; flex:0 0 auto; padding-top:0.15rem; }
+  .sg-edu-item--masters .what{ font-family:'IBM Plex Mono', monospace; }
+  .sg-edu-item .where{ color: var(--sg-ink); font-family:'IBM Plex Mono', monospace; font-size:0.78rem; text-align:right; flex:0 0 auto; padding-top:0.15rem; }
 
   .sg-projects{ display:flex; flex-direction:column; margin-top:1.1rem; }
   .sg-proj{
@@ -347,6 +348,11 @@ redirect_from:
       <section id="overview">
         <div class="sg-label">Background</div>
         <p>My background spans the full delivery lifecycle: requirements gathering, architecture, API management, backend and test engineering, and production-grade execution. Having begun my career in the IT sector at age 20, I currently serve as Sr. Engineering Tech Lead for the SME Digital Channels, Open API and Partnerships program at <i>Standard Chartered, Singapore</i>, where I continue to deliver high-impact solutions across multiple domains.</p>
+        <h3 class="sg-sub">Education</h3>
+        <div class="sg-edu">
+          <div class="sg-edu-item"><span class="what">PG Certification Program in Artificial Intelligence and Machine Learning</span><span class="where">IIIT Hyderabad</span></div>
+          <div class="sg-edu-item sg-edu-item--masters"><span class="what">Master's in Software Engineering</span><span class="where">BITS Pilani</span></div>
+        </div>
       </section>
 
       <section id="focus">
