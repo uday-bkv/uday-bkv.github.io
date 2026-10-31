@@ -36,7 +36,7 @@ redirect_from:
   .home{
     max-width: 1060px;
     margin: 0 auto;
-    padding: 0.5rem 1.25rem 2rem;
+    padding: 0.2rem 1.25rem 2rem;
     font-family: 'IBM Plex Sans', sans-serif;
     color: var(--sg-ink-muted);
     line-height: 1.6;
@@ -45,7 +45,7 @@ redirect_from:
   .home a:hover{ color: var(--sg-cool); }
 
   /* hero */
-  .sg-hero{ padding: 2rem 0 2.25rem; }
+  .sg-hero{ padding: 0.8rem 0 1.8rem; }
   .sg-status{
     display:inline-flex; align-items:center; gap:0.55rem;
     font-family:'IBM Plex Mono', monospace; font-size:0.76rem; color:var(--sg-ink-muted);
@@ -67,8 +67,8 @@ redirect_from:
     margin:0 0 0.5rem; max-width:11ch; color: var(--sg-ink);
   }
   .sg-role{
-    font-family:'Space Grotesk', sans-serif; font-size:1.08rem; font-weight:500;
-    color: #000; margin:0 0 1.2rem;
+    font-family:'IBM Plex Mono', monospace; font-size:0.82rem; font-weight:500;
+    letter-spacing:0.02em; color: #000; margin:0 0 1.2rem;
   }
   .sg-role .sep{ color:inherit; margin:0 0.5rem; }
   .sg-intro{ max-width:56ch; font-size:1.01rem; margin:0 0 1.75rem; }
