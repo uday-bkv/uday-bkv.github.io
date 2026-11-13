@@ -306,7 +306,7 @@ redirect_from:
       <path d="M0,24 L55,24 L69,7 L88,41 L106,13 L120,24 L185,24 C199,24 199,9 213,9 C227,9 227,24 241,24 L314,24 L328,37 L347,11 L363,24 L480,24" />
     </svg>
 
-    <p class="sg-intro">I'm an <strong>Engineering Lead</strong> with a strong track record across Banking, Energy &amp; Utilities, and Digital Transformation. I specialise in closing the gap between business strategy and technical delivery — bringing hands-on depth in designing and shipping production-ready applications at enterprise scale.</p>
+    <p class="sg-intro">A hands-on space for exploring AI tools and technologies, with real use cases, practical implementations, and small problems solved along the way. I write about Architecture, Solution & Design, and AI/ML.</p>
 
     <div class="sg-links">
       {% if site.author.linkedin %}
@@ -347,7 +347,7 @@ redirect_from:
 
       <section id="overview">
         <div class="sg-label">Background</div>
-        <p>My background spans the full delivery lifecycle: requirements gathering, architecture, API management, backend and test engineering, and production-grade execution. Having begun my career in the IT sector at age 20, I currently serve as Sr. Engineering Tech Lead for the SME Digital Channels, Open API and Partnerships program at <i>Standard Chartered, Singapore</i>, where I continue to deliver high-impact solutions across multiple domains.</p>
+        <p>My background spans the full delivery lifecycle: requirements gathering, architecture, API management, backend and test engineering, and production-grade execution. Having begun my career in the IT sector at age 20, I currently serve as Sr. Engineering Tech Lead at <i>Standard Chartered, Singapore</i>.</p>
         <h3 class="sg-sub">Education</h3>
         <div class="sg-edu">
           <div class="sg-edu-item"><span class="what">PG Certification Program in Artificial Intelligence and Machine Learning</span><span class="where">IIIT Hyderabad</span></div>

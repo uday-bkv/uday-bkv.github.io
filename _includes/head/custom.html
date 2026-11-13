@@ -9,11 +9,9 @@
 <link rel="icon" type="image/png" href="{{ base_path }}/images/favicon-192x192.png" sizes="192x192"/>
 <link rel="manifest" href="{{ base_path }}/images/manifest.json"/>
 <link rel="icon" href="/images/favicon.ico"/>
-<meta name="theme-color" content="#ffffff"/>
+<meta name="theme-color" content="#000000"/>
 <script>
-  (function(){
-    document.documentElement.setAttribute('data-theme', 'light');
-  })();
+  document.documentElement.setAttribute('data-theme', 'dark');
 </script>
 
 <link rel="stylesheet" href="{{ base_path }}/assets/css/academicons.css"/>
@@ -37,7 +35,7 @@
      Every page (home, thoughts, notes, writing lists, posts) reads these. */
   :root{
     color-scheme: dark;
-    --sys-bg: #14110d;
+    --sys-bg: #000000;
     --sys-panel: #1b1712;
     --sys-panel-2: #12161c;
     --sys-line: rgba(242,236,227,0.10);
@@ -121,6 +119,7 @@
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
+    position: relative !important;
     width: 100% !important;
     max-width: none !important; /* full width: logo far left, buttons far right */
     height: 100%;
@@ -137,13 +136,17 @@
     font-family: 'Space Grotesk', sans-serif !important;
     font-size: 1.05rem !important;
     font-weight: 600 !important;
-    color: var(--sys-ink) !important;
+    color: #15120e !important;
     text-decoration: none !important;
     letter-spacing: -0.01em;
     flex-shrink: 0;
   }
   .sg-mark span{ color: var(--sys-warm); }
-  .sg-nav{ min-width: 0; overflow: hidden; }
+  .sg-nav{
+    position: absolute; left: 80%; transform: translateX(-50%);
+    width: max-content; max-width: calc(100% - 18rem);
+    min-width: 0; margin: 0; overflow: hidden;
+  }
   .sg-nav ul{
     display: flex !important;
     flex-wrap: nowrap;
@@ -208,6 +211,7 @@
     .sg-menu-toggle{ display: inline-flex; }
     .sg-nav{
       display: none; position: absolute; top: 100%; left: 0; right: 0; width: auto; max-width: none;
+      transform: none; margin: 0;
       background: var(--sys-panel); border-bottom: 1px solid var(--sys-line);
       box-shadow: var(--sys-shadow); overflow: visible; z-index: 30;
     }
@@ -248,6 +252,10 @@
       linear-gradient(rgba(255,255,255,0.78), rgba(255,255,255,0.84)),
       url('{{ "/images/aboutme/DSC09787.JPG" | relative_url }}');
   }
+  :root[data-theme="dark"] body:has(.home, .wr, .th)::before{
+    background: #000000;
+    filter: none;
+  }
   #main:has(.home, .wr, .th){ background:transparent !important; }
   @media (max-width: 600px){
     body:has(.home, .wr, .th)::before{ background-position: 92% 60px; }
@@ -281,6 +289,29 @@
     color: var(--sys-ink-muted) !important;
   }
   .page__footer a:hover{ color: var(--sys-warm) !important; }
+
+  :root[data-theme="dark"] .sg-masthead,
+  :root[data-theme="dark"] .sg-nav,
+  :root[data-theme="dark"] .page__footer{
+    background: #000000 !important;
+  }
+  :root[data-theme="dark"] .sg-masthead{ border-bottom-color: rgba(255,255,255,0.28) !important; }
+  :root[data-theme="dark"] .sg-mark,
+  :root[data-theme="dark"] .sg-mark span,
+  :root[data-theme="dark"] .sg-nav a,
+  :root[data-theme="dark"] .sg-nav li[class*="sg-nav__"] a,
+  :root[data-theme="dark"] .sg-nav__ext a,
+  :root[data-theme="dark"] .sg-nav .sg-nav__icon,
+  :root[data-theme="dark"] .sg-menu-toggle,
+
+  :root[data-theme="dark"] .page__footer,
+  :root[data-theme="dark"] .page__footer footer,
+  :root[data-theme="dark"] .page__footer a{
+    color: #ffffff !important;
+  }
+  :root[data-theme="dark"] .sg-menu-toggle{
+    border-color: rgba(255,255,255,0.3);
+  }
 
   ::selection{ background: var(--sys-warm); color: var(--sys-bg); }
 </style>
